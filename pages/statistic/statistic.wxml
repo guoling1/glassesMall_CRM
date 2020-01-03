@@ -1,0 +1,47 @@
+<!--pages/statistic/statistic.wxml-->
+<view class="search-box">
+  <view class="search">
+    <!-- <input class="inp" placeholder="统计开始时间"></input> -->
+    <picker class="inp" mode="date" bindchange="bindFromTime">
+      <view class="picker">
+        {{fromTime}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png" class="calendar"></image>
+    <text>~</text>
+    <!-- <input class="inp" placeholder="统计截至时间"></input> -->
+    <picker class="inp" mode="date" bindchange="bindToTime">
+      <view class="picker">
+        {{toTime}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png" class="calendar"></image>
+  </view>
+  <button class="submit" bindtap="getIncome">搜索</button>
+</view>
+<view class="content">
+  <ec-canvas id="mychart-dom-line" canvas-id="mychart-line" ec="{{ ec }}"></ec-canvas>
+</view>
+<view class="table">
+  <view class="rows">
+    <text class="item1">月份</text>
+    <text class="item2">本年度配镜人数</text>
+    <text class="item3">上年度配镜人数</text>
+    <text class="item4">配镜人次同比</text>
+    <text class="item5">金额</text>
+  </view>
+  <view class="rows" wx:for="{{countData}}" wx:key="index">
+    <text class="item1">{{item.monthsName}}</text>
+    <text class="item2">{{item.thisPatCount||0}}</text>
+    <text class="item3">{{item.lastPatCount||0}}</text>
+    <text class="item4">{{item.patTb||0}}</text>
+    <text class="item5">{{item.price||0}}</text>
+  </view>
+  <!-- <view class="rows">
+    <text class="item1">一月</text>
+    <text class="item2">40</text>
+    <text class="item3">40</text>
+    <text class="item4">40</text>
+    <text class="item5">4340</text>
+  </view> -->
+</view>

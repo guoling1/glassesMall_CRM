@@ -1,0 +1,19 @@
+/* pages/nearGoods/nearGoods.wxss */
+.item {
+  margin: 0 auto;
+  padding: 20rpx 0;
+  width: 690rpx;
+  font-weight: 600;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.item .date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.item .name {
+  display: inline-block;
+  width: 300rpx;
+}

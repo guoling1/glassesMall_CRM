@@ -1,0 +1,32 @@
+/* pages/customEdit/customEdit.wxss */
+.section{
+  margin: 0 auto;
+  padding-top: 30rpx;
+  width: 690rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+  line-height: 86rpx;
+  font-size: 28rpx;
+}
+.section .title{
+  display: inline-block;
+}
+.right{
+  float: right;
+  text-align: right;
+}
+.right{
+  height: 86rpx;
+  line-height: 86rpx;
+}
+button{
+  margin: 180rpx auto 0;
+  width: 660rpx;
+  height: 86rpx;
+  line-height: 86rpx;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  background: #fff;
+  color: #fff;
+  background: #4944fe;
+}

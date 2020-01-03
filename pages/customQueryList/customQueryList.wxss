@@ -1,0 +1,31 @@
+/* pages/customQueryList/customQueryList.wxss */
+page{
+  height: 100%;
+  background: #f2f2f3;
+}
+.item {
+  margin: 20rpx auto;
+  padding: 12rpx 30rpx;
+  width: 690rpx;
+  font-weight: 600;
+  font-size: 24rpx;
+  background: #fff;
+  line-height: 52rpx;
+  box-shadow: 0 20rpx 20rpx #fbfcff;
+}
+.item .top text{
+  margin-right: 24rpx;
+}
+.item .top .name{
+  font-size: 32rpx;
+}
+
+.item .date {
+  float: right;
+  font-weight: normal;
+}
+
+.item .detail {
+  font-weight: bold;
+  color: #666;
+}

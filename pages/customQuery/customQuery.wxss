@@ -1,0 +1,75 @@
+/* pages/customQuery/customQuery.wxss */
+page{
+  height: 100%;
+  background: #f2f2f3;
+}
+.search-box {
+  margin-top: 20rpx;
+  padding: 44rpx 0 56rpx;
+  background: #fff;
+  box-shadow: 0 20rpx 20rpx #fbfcff;
+}
+.inp{
+  margin: 0 auto 26rpx;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx; 
+  text-align: center;
+  border: 1rpx solid #e4e4e4;
+  border-radius: 29rpx;
+  background: #f9f9f9;
+  font-size: 24rpx;
+}
+.top{
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 645rpx;
+}
+.top .inp{
+  margin: 0 0 26rpx;
+  width: 304rpx;
+}
+.search {
+  margin: 45rpx auto 30rpx;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  background: #f9f9f9;
+  border: 1rpx solid #e4e4e4;
+  border-radius: 29rpx;
+  font-size: 24rpx;
+}
+
+.search .inp {
+  display: inline-block;
+  margin: 0 0 0 32rpx;
+  width: 200rpx;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  background: transparent;
+}
+
+.search .calendar {
+  display: inline-block;
+  margin-right: 52rpx;
+  width: 27rpx;
+  height: 23rpx;
+  vertical-align: middle;
+}
+
+.search text {
+  height: 58rpx;
+  line-height: 58rpx;
+}
+.submit {
+  margin: 75rpx auto 0;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  background: #4944fe;
+  border-radius: 29rpx;
+  font-size: 24rpx;
+  color: #fff;
+}

@@ -1,0 +1,43 @@
+<!--pages/customEdit/customEdit.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="section">
+    <view class="title">姓名</view>
+    <input class="right" name="fullname" value="fullname" placeholder="请输入姓名" />
+  </view>
+  <view class="section">
+    <view class="title">性别</view>
+    <picker name="sex" value="sex" class="right" bindchange="bindSexChange" value="{{index}}" range="{{sexList}}">
+      <view class="picker">
+        {{sex}}
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <view class="title">年龄</view>
+    <input class="right" name="age" value="age" placeholder="请输入年龄" />
+  </view>
+  <view class="section">
+    <view class="title">手机号</view>
+    <input class="right" name="phone" value="phone" placeholder="请输入手机号" />
+  </view>
+  <view class="section">
+    <view class="title">用户简拼</view>
+    <input class="right" name="jianpin" value="jianpin" placeholder="请确认用户简拼" />
+  </view>
+  <view class="section">
+    <view class="title">属地</view>
+    <input class="right" name="address" value="address" placeholder="请输入属地" />
+  </view>
+  <view class="section">
+    <view class="title">创建时间</view>
+    <!-- <input class="right" name="peijingdate" placeholder="请选择创建时间" /> -->
+    <picker class="right" mode="date" bindchange="bindTime">
+      <view class="picker">
+        {{peijingdate}}
+      </view>
+    </picker>
+  </view>
+  <view class="btn-area">
+    <button formType="submit">保存</button>
+  </view>
+</form>

@@ -1,0 +1,26 @@
+<!--pages/customQuery/customQuery.wxml-->
+<view class="search-box">
+  <view class="top">
+    <input class="inp" placeholder="客户简拼" value="" bindinput="jpedit"></input>
+    <input class="inp" placeholder="客户姓名" bindinput="fullnameedit"></input>
+  </view>
+  <input class="inp" placeholder="手机号" bindinput="phoneedit"></input>
+  <view class="search">
+    <!-- <input class="inp" placeholder="统计开始时间"></input> -->
+    <picker class="inp" mode="date" bindchange="bindFromTime">
+      <view class="picker">
+        {{fromTime}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png" class="calendar"></image>
+    <text>~</text>
+    <!-- <input class="inp" placeholder="统计截至时间"></input> -->
+    <picker class="inp" mode="date" bindchange="bindToTime">
+      <view class="picker">
+        {{toTime}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png" class="calendar"></image>
+  </view>
+  <button class="submit" bindtap="search">搜索</button>
+</view>

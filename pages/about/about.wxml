@@ -1,0 +1,5 @@
+<!--pages/about/about.wxml-->
+<image src="../../images/map.png"></image>
+<view>地址：邯郸市邯山区旺角广场B座</view>
+<view>电话：0310-5368952</view>
+<view>微信：13333103969</view>

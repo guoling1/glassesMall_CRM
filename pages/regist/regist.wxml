@@ -1,0 +1,50 @@
+<!--pages/regist/regist.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="section">
+    <text class="title" decode="true">用&nbsp;户&nbsp;名</text>
+    <input class="right" name="loginName" placeholder="请输入用户名" />
+  </view>
+  <view class="section">
+    <view class="title">类型选择</view>
+    <picker name="type" class="right" bindchange="bindTypeChange" value="{{index}}" range="{{typeList}}">
+      <view class="picker">
+        {{type}}
+      </view>
+    </picker>
+  </view>
+  <view class="section" wx:if="{{type=='老店'}}">
+    <text class="title" decode="true">识&nbsp;&nbsp;别&nbsp;&nbsp;码</text>
+    <input class="right" name="userCode" placeholder="请输入识别码" />
+  </view>
+  <view class="section">
+    <view class="title">真实姓名</view>
+    <input class="right" name="name" placeholder="请输入真实姓名" />
+  </view>
+  <view class="section">
+    <text class="title" decode="true">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别</text>
+    <picker name="sex" class="right" bindchange="bindSexChange" value="{{index}}" range="{{sexList}}">
+      <view class="picker">
+        {{sex}}
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <text class="title" decode="true">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码</text>
+    <input class="right" type="password" name="password" placeholder="请输入密码" />
+  </view>
+  <view class="section">
+    <view class="title">确认密码</view>
+    <input class="right" type="password" name="password1" placeholder="请确认密码" />
+  </view>
+  <view class="section">
+    <view class="title">店铺名称</view>
+    <input class="right" name="shopName" placeholder="请输入店铺名称" />
+  </view>
+  <view class="section">
+    <view class="title">电话号码</view>
+    <input class="right" name="phone" placeholder="请输入电话号码" />
+  </view>
+  <view class="btn-area">
+    <button formType="submit">确认注册</button>
+  </view>
+</form>

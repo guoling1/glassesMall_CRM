@@ -1,0 +1,62 @@
+/**index.wxss**/
+.title{
+  padding: 30rpx 0 5rpx 30rpx;
+  font-size: 50rpx;
+  font-weight: bold;
+}
+.date{
+  padding-left: 30rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #666666;
+}
+.census{
+  padding: 45rpx 0 30rpx 0;
+  font-size: 0;
+  box-shadow: 0 15rpx 20rpx #f9f9ff;
+}
+.census .item{
+  display: inline-block;
+  width: 249rpx;
+  font-size: 24rpx;
+  color: #666666;
+  font-weight: bold;
+  text-align: center;
+  border-right: 1rpx solid #f3f3f3;
+}
+.census .item:last-child{
+  border: none;
+}
+.census .item .price{
+  margin-top: 15rpx;
+  font-size: 38rpx;
+  font-weight: 900;
+  color: #e4373b;
+}
+.nav{
+  margin-top: 62rpx;
+}
+.nav .item{
+  display: inline-block;
+  margin-left: -1rpx;
+  margin-top: -1rpx;
+  padding-bottom: 40rpx;
+  width: 250rpx;
+  font-weight: bold;
+  font-size: 28rpx;
+  color: #010101;
+  text-align: center;
+  border-right: 1rpx solid #f3f3f3;
+  border-bottom: 1rpx solid #f3f3f3;
+}
+.nav .item:nth-child(3n){
+  border-right: none;
+}
+.nav .item:nth-last-child(1),.nav .item:nth-last-child(2),.nav .item:nth-last-child(3){
+  border-bottom: none;
+}
+.nav .item image{
+  margin: 46rpx 0 10rpx;
+  width: 114rpx;
+  height: 114rpx;
+}

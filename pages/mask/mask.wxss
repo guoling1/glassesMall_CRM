@@ -1,0 +1,12 @@
+/* pages/mask/mask.wxss */
+page{
+  font-size: 32rpx;
+  text-align: center
+}
+text{
+  display: inline-block;
+  padding: 120rpx 0 60rpx;
+}
+button{
+  width: 60%;
+}

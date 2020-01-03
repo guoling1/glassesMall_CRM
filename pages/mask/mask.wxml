@@ -1,0 +1,5 @@
+<!--pages/mask/mask.wxml-->
+<text>· 获取您的公开信息（昵称、头像等）</text>
+<button open-type="getUserInfo" type='primary' size='' class='show-author' bindgetuserinfo="getUserInfo">
+<view class='get-userinfo'>确认登陆</view>
+ </button>

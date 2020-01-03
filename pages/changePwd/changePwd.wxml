@@ -1,0 +1,7 @@
+<!--pages/changePwd/changePwd.wxml-->
+<form bindsubmit="formSubmit">
+  <input name="input" placeholder="请输入原密码" />
+  <input type="password" name="input" placeholder="请输入新密码" />
+  <input type="password" name="input" placeholder="请确认新密码" />
+  <button formType="submit">确认修改</button>
+</form>

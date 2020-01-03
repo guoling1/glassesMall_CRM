@@ -1,0 +1,103 @@
+<!--pages/customInfoAdd/customInfoAdd.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="line"></view>
+  <view class="title">右眼</view>
+  <view class="item">
+    <text class="name">裸眼视力：</text>
+    <input class="inp" value="{{rLuoyanshili}}" name="rLuoyanshili"></input>
+  </view>
+  <view class="item">
+    <text class="name">球镜：</text>
+    <input class="inp" value="{{rQiujing}}" name="rQiujing"></input>
+  </view>
+  <view class="item">
+    <text class="name">柱镜：</text>
+    <input class="inp" value="{{rZhujing}}" name="rZhujing"></input>
+  </view>
+  <view class="item">
+    <text class="name">轴向：</text>
+    <input class="inp" value="{{rZhouxiang}}" name="rZhouxiang"></input>
+  </view>
+  <view class="item">
+    <text class="name">矫正视力：</text>
+    <input class="inp" value="{{rJiaozhengshili}}" name="rJiaozhengshili"></input>
+  </view>
+  <view class="title">左眼</view>
+  <view class="item">
+    <text class="name">裸眼视力：</text>
+    <input class="inp" value="{{lLuoyanshili}}" name="lLuoyanshili"></input>
+  </view>
+  <view class="item">
+    <text class="name">球镜：</text>
+    <input class="inp" value="{{lQiujing}}" name="lQiujing"></input>
+  </view>
+  <view class="item">
+    <text class="name">柱镜：</text>
+    <input class="inp" value="{{lZhujing}}" name="lZhujing"></input>
+  </view>
+  <view class="item">
+    <text class="name">轴向：</text>
+    <input class="inp" value="{{lZhouxiang}}" name="lZhouxiang"></input>
+  </view>
+  <view class="item">
+    <text class="name">矫正视力：</text>
+    <input class="inp" value="{{lJiaozhengshili}}" name="lJiaozhengshili"></input>
+  </view>
+  <view class="dashed"></view>
+  <view class="item">
+    <text class="name">远用瞳距：</text>
+    <input class="inp" value="{{yuanyongtongju}}" name="yuanyongtongju"></input>
+  </view>
+  <view class="item">
+    <text class="name">用途：</text>
+    <input class="inp" value="{{yongtu}}" name="yongtu" placeholder="请选择用途"></input>
+  </view>
+  <view class="item">
+    <text class="name">镜框：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="jiangkuang" mode="selector" value="{{indexJK}}" bindchange="bindJK" range="{{typeListJK}}" range-key="dictName">
+      <view class="picker">
+        {{typeListJK[indexJK].dictName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">镜片：</text>
+    <!-- <input class="inp" value="jiangpian" name="jiangpian" placeholder="请选择镜片"></input> -->
+    <picker class="inp" name="jiangpian" mode="selector" value="{{indexJP}}" bindchange="bindJP" range="{{typeListJP}}" range-key="dictName">
+      <view class="picker">
+        {{typeListJP[indexJP].dictName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">隐形：</text>
+    <!-- <input class="inp" value="{{yinxing}}" name="yinxing" placeholder="请选择隐形"></input> -->
+    <picker class="inp" name="yinxing" mode="selector" value="{{indexYX}}" bindchange="bindXY" range="{{typeListYX}}" range-key="dictName">
+      <view class="picker">
+        {{typeListYX[indexYX].dictName}}
+      </view>
+    </picker>
+  </view>
+  <view class="line"></view>
+  <view class="item" style="margin-top:30rpx;">
+    <text class="name">消费金额：</text>
+    <input class="inp" value="{{price}}" name="price"></input>
+  </view>
+  <view class="item">
+    <text class="name">配镜日期：</text>
+    <!-- <input class="inp" value="createDate" name="createDate"></input> -->
+    <picker class="inp" value="{{createDate}}" name="createDate" mode="date" bindchange="bindTime">
+      <view class="picker">
+        {{createDate}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png"></image>
+  </view>
+  <view class="line"></view>
+  <view class="remark">
+    <view class="name">备注</view>
+    <textarea value="{{desc}}" name="desc"></textarea>
+  </view>
+  <button formType="submit" class="submit">保存</button>
+</form>

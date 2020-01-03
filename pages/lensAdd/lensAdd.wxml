@@ -1,0 +1,48 @@
+<!--pages/lensAdd/lensAdd.wxml-->
+<view class="search-box">
+  <view class="search type">
+    <image src="../../images/search.png"></image>
+    <!-- <input class="inp" placeholder="请选择商品类型"></input> -->
+    <picker class="inp" mode="selector" value="{{index}}" bindchange="bindJingpian" range="{{typeList}}" range-key="dictName" data-id='{{typeList[index].id}}'>
+      <view class="picker">
+        {{typeList[index].dictName}}
+      </view>
+    </picker>
+  </view>
+  <view class="search">
+    <!-- <input class="inp" placeholder="统计开始时间"></input> -->
+    <picker class="inp" mode="date" bindchange="bindFromTime">
+      <view class="picker">
+        {{fromTime}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png" class="calendar"></image>
+    <text>~</text>
+    <!-- <input class="inp" placeholder="统计截至时间"></input> -->
+    <picker class="inp" mode="date" bindchange="bindToTime">
+      <view class="picker">
+        {{toTime}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png" class="calendar"></image>
+  </view>
+  <button class="submit" bindtap="search">搜索</button>
+</view>
+<view class="table">
+  <view class="rows">
+    <text class="item1">店铺名称</text>
+    <text class="item2">镜片</text>
+    <text class="item3">球镜</text>
+    <text class="item4">柱镜</text>
+    <text class="item5">配镜日期</text>
+    <text class="item6">合计</text>
+  </view>
+  <view class="rows" wx:for="{{lensData}}" wx:key="index">
+    <text class="item1">{{item.desc}}</text>
+    <text class="item2">{{item.jiangpian}}</text>
+    <text class="item3">{{item.rQiujing||0}}</text>
+    <text class="item4">{{item.rZhujing||0}}</text>
+    <text class="item5">{{item.createDate}}</text>
+    <text class="item6">{{item.buytime}}</text>
+  </view>
+</view>

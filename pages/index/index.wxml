@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<view class="title">数据统计</view>
+<view class="date">2018年11月23日 星期五</view>
+<view class="census">
+  <view class="item">
+  <navigator url="/pages/income/income">
+    <view class="name">总收入 (元)</view>
+    <view class="price">{{(income1||0)+(income2||0)}}</view>
+  </navigator>
+    
+  </view>
+  <view class="item">
+    <view class="name">配镜收入 (元)</view>
+    <view class="price">{{income1||0}}</view>
+  </view>
+  <view class="item">
+    <view class="name">周边收入 (元)</view>
+    <view class="price">{{income2||0}}</view>
+  </view>
+</view>
+<view class="nav">
+  <navigator class="item" url="/pages/goodsInfo/goodsInfo">
+    <image src="../../images/nav1.png"></image>
+    <view>商品信息</view>
+  </navigator>
+  <navigator class="item" url="/pages/customAdd/customAdd">
+    <image src="../../images/nav2.png"></image>
+    <view>增加客户</view>
+  </navigator>
+  <navigator class="item" url="/pages/customQuery/customQuery">
+    <image src="../../images/nav3.png"></image>
+    <view>查询客户</view>
+  </navigator>
+  <navigator class="item" url="/pages/lensAdd/lensAdd">
+    <image src="../../images/nav4.png"></image>
+    <view>镜片补货</view>
+  </navigator>
+  <navigator class="item" url="/pages/nearGoods/nearGoods">
+    <image src="../../images/nav5.png"></image>
+    <view>周边产品</view>
+  </navigator>
+  <navigator class="item" url="/pages/statistic/statistic">
+    <image src="../../images/nav6.png"></image>
+    <view>配镜统计</view>
+  </navigator>
+  <navigator class="item" url="/pages/customList/customList">
+    <image src="../../images/nav7.png"></image>
+    <view>客户列表</view>
+  </navigator>
+  <navigator class="item">
+    <image src="../../images/nav8.png"></image>
+    <view>我的商城</view>
+  </navigator>
+  <navigator class="item">
+    <image src="../../images/nav9.png"></image>
+    <view>帮助</view>
+  </navigator>
+</view>

@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+<view class="login">
+  <image class="bg" src="../../images/login-bg.png"></image>
+  <view class="content">
+    <view class="title">登录</view>
+  <form bindsubmit="formSubmit">
+    <input name="input" placeholder="用户名" />
+    <input name="input" type="password" placeholder="密码" />
+    <button class="submit" formType="submit">登录</button>
+  </form>
+  <navigator url="/pages/regist/regist" class="regist">新用户注册</navigator>
+  </view>
+  
+</view>

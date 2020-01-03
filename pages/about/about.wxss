@@ -1,0 +1,11 @@
+/* pages/about/about.wxss */
+view{
+  padding: 0 30rpx;
+  line-height: 48rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+image {
+  margin-bottom: 30rpx;
+  width: 100%;
+}

@@ -1,0 +1,53 @@
+<!--pages/customList/customList.wxml-->
+<view class="search-box">
+  <view class="search">
+    <image src="../../images/search.png"></image>
+    <input placeholder="请输入相关关键字" value="{{search}}" bindinput="searchEdit" bindconfirm="searchConfirm"></input>
+    <button bindtap="toHighSearch">高级搜索</button>
+  </view>
+</view>
+<view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{customList}}" wx:key="id">
+
+  <view class='content1' bindtap='showDetail' data-id="{{item.id}}">
+    <view class="item">
+      <view class="top">
+        <text class="name">{{item.fullname}}</text>
+        <text class="sex">（{{item.sex==1?'男':'女'}}）</text>
+        <text class="age">{{item.age}}岁</text>
+        <text class="word">简拼：{{item.jianpin}}</text>
+        <view class="date">创建时间：{{item.peijingdate}}</view>
+      </view>
+      <view class="detail">联系电话：{{item.phone}}</view>
+      <view class="detail">属地：{{item.address}}</view>
+    </view>
+  </view>
+
+  <view class="del1" catchtap="edit"  data-id="{{item.id}}">编辑</view>
+  <view class="del1 del2" catchtap="del" data-id="{{item.id}}">删除</view>
+
+</view>
+<view class="search-mask" wx:if="{{isSearch}}" bindtap="closeMask">
+  <view class="content" catchtap='(function(){})()'>
+    <view class="top">
+      <input class="inp" placeholder="客户简拼" value="{{jianpin}}" bindinput="jpedit"></input>
+      <input class="inp" placeholder="客户姓名" value="{{fullname}}" bindinput="fullnameedit"></input>
+    </view>
+    <input class="inp" placeholder="手机号" value="{{phone}}" bindinput="phoneedit"></input>
+    <view class="search">
+      <picker class="inp" mode="date" bindchange="bindFromTime">
+        <view class="picker">
+          {{fromTime}}
+        </view>
+      </picker>
+      <image src="../../images/calendar.png" class="calendar"></image>
+      <text>~</text>
+      <picker class="inp" mode="date" bindchange="bindToTime">
+        <view class="picker">
+          {{toTime}}
+        </view>
+      </picker>
+      <image src="../../images/calendar.png" class="calendar"></image>
+    </view>
+    <button class="submit" catchtap="highSearch">搜索</button>
+  </view>
+</view>

@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/about/about",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/regist/regist",
+    "pages/income/income",
+    "pages/myStore/myStore",
+    "pages/changePwd/changePwd",
+    "pages/goodsInfo/goodsInfo",
+    "pages/goodsAdd/goodsAdd",
+    "pages/customAdd/customAdd",
+    "pages/customEdit/customEdit",
+    "pages/customQuery/customQuery",
+    "pages/customQueryList/customQueryList",
+    "pages/lensAdd/lensAdd",
+    "pages/nearGoods/nearGoods",
+    "pages/statistic/statistic",
+    "pages/customList/customList",
+    "pages/customInfo/customInfo",
+    "pages/customInfoAdd/customInfoAdd",
+    "pages/mask/mask"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#3e3f42",
+    "navigationBarTitleText": "眼镜商城",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#c9c9c9",
+    "selectedColor": "#4944fe",
+    "list": [
+      {
+        "selectedIconPath": "images/tab11.png",
+        "iconPath": "images/tab1.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/tab21.png",
+        "iconPath": "images/tab2.png",
+        "pagePath": "pages/about/about",
+        "text": "联系我们"
+      },
+      {
+        "selectedIconPath": "images/tab31.png",
+        "iconPath": "images/tab3.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

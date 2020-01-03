@@ -1,0 +1,102 @@
+/* pages/my/my.wxss */
+
+.head {
+  position: relative;
+  margin-bottom: 50rpx;
+  width: 100%;
+  height: 360rpx;
+}
+
+.head .headBg {
+  position: absolute;
+  width: 150%;
+  height: 360rpx;
+  background: #343435;
+  border-radius: 0 0 50% 50%;
+  overflow: hidden;
+  margin-left: -25%;
+}
+
+.head .card {
+  position: absolute;
+  bottom: -20rpx;
+  left: 30rpx;
+  width: 690rpx;
+  height: 275rpx;
+}
+
+.head .card .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.head .card .top {
+  position: absolute;
+  top: 40rpx;
+  left: 40rpx;
+  color: #fff;
+  font-size: 24rpx;
+  line-height: 48rpx;
+}
+
+.head .card .avatar {
+  float: left;
+  width: 110rpx;
+  height: 110rpx;
+}
+
+.head .card .top .right {
+  margin: 14rpx 0 0 130rpx;
+}
+
+.head .card .top .name {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.head .card .number {
+  position: absolute;
+  bottom: 42rpx;
+  left: 40rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.head .card .recharge {
+  position: absolute;
+  bottom: 33rpx;
+  right: 47rpx;
+  line-height: 50rpx;
+  width: 176rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  color: #856630;
+  text-align: center;
+  border: 2rpx solid #856630;
+  border-radius: 25rpx;
+}
+navigator{
+  padding: 0 30rpx;
+  line-height: 64rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  background: #fff;
+}
+navigator image{
+  display: inline-block;
+  width: 65rpx;
+  height: 65rpx;
+  vertical-align:middle;
+}
+navigator text{
+  display: inline-block;
+  margin-left: 5rpx;
+  padding: 18rpx;
+  width: 580rpx;
+  height: 104rpx;
+  line-height: 104rpx;
+  border-bottom: 1rpx solid #f2f2f2;
+}

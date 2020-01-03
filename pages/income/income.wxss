@@ -1,0 +1,72 @@
+/* pages/income/income.wxss */
+
+.search-box {
+  margin-bottom: 20rpx;
+  padding-bottom: 56rpx;
+  border-top: 20rpx solid #f1f1f3;
+  box-shadow: 0 20rpx 20rpx #fbfcff;
+}
+
+.search {
+  margin: 45rpx auto 30rpx;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  background: #f9f9f9;
+  border: 1rpx solid #e4e4e4;
+  border-radius: 29rpx;
+  font-size: 24rpx;
+}
+
+.search .inp {
+  display: inline-block;
+  margin-left: 32rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  width: 200rpx;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.search .calendar {
+  display: inline-block;
+  margin-right: 52rpx;
+  width: 27rpx;
+  height: 23rpx;
+  vertical-align: middle;
+}
+
+.search text {
+  height: 58rpx;
+  line-height: 58rpx;
+}
+
+.submit {
+  margin: 0 auto;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  background: #4944fe;
+  border-radius: 29rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+
+.item {
+  margin: 0 auto;
+  padding: 20rpx 0;
+  width: 690rpx;
+  font-weight: 600;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.item .date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.item .price {
+  float: right;
+  color: #e4373b;
+}
