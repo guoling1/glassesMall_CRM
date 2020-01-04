@@ -37,10 +37,37 @@ Page({
       content: '确认要删除此条信息么？',
       success: function(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
-          that.data.items.splice(e.currentTarget.dataset.index, 1)
-          that.setData({
-            items: that.data.items
+          wx.showLoading({
+            title: '删除中',
+          })
+          wx.request({
+            url: getApp().globalData.url + '/rest/sys/customersDetail/delete1',
+            method: 'post',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded",
+              'X-AUTH-TOKEN': app.globalData.token
+            },
+            data: {
+              ids: e.currentTarget.dataset.id
+            },
+            success: function (res) {
+              if (res.data.code == 200) {
+                wx.showToast({
+                  title: '删除成功'
+                })
+                page = 0;
+                that.setData({
+                  lensList: []
+                })
+                that.getCustom()
+              } else {
+                console.log('')
+              }
+              wx.hideLoading();
+            },
+            fail: function () {
+              console.log('系统错误');
+            }
           })
         } else if (res.cancel) {
           console.log('用户点击取消')
@@ -149,10 +176,6 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-    page = 0;
-    this.setData({
-      lensList: []
-    })
     this.getCustom()
   },
 

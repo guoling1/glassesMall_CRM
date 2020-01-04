@@ -209,11 +209,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    // page = 0;
-    // this.setData({
-    //   customList:[]
-    // })
-    // this.getCustomList();
+    
   },
 
   /**

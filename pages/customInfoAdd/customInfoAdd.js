@@ -74,8 +74,8 @@ Page({
     //   }
     // }
     if (flag) {
-      data.pid = that.data.pid;
-      data.cid = '';
+      data.pId = that.data.pid;
+      data.cId = '';
       wx.request({
         url: app.globalData.url + '/rest/sys/customersDetail1',
         method: 'post',
