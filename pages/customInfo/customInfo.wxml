@@ -44,7 +44,7 @@
       <text>{{item.desc||'无'}}</text>
     </view>
   </view>
-  <view class="del1" catchtap="edit" data-cid="{{item.cid}}">编辑</view>
-  <view class="del1 del2" catchtap="del" data-cid="{{item.cid}}">删除</view>
+  <view class="del1" catchtap="edit" data-cid="{{item.cId}}" data-pid="{{pid}}">编辑</view>
+  <view class="del1 del2" catchtap="del" data-cid="{{item.cId}}">删除</view>
 </view>
 <navigator url="/pages/customInfoAdd/customInfoAdd?pid={{pid}}" class="add">添加</navigator>

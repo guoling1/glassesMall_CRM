@@ -30,6 +30,11 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
     })
+    if (that.data.dictInfo =='请选择商品类型'){
+      this.setData({
+        dictInfo: ''
+      })
+    }
     page = page + 1;
     wx.request({
       url: getApp().globalData.url + '/rest/sys/dict/view',
@@ -52,7 +57,6 @@ Page({
         } else {
           console.log('')
         }
-
         wx.hideLoading();
       },
       fail: function () {

@@ -1,0 +1,3 @@
+<!--pages/myShop/myShop.wxml-->
+<import src="../../wxParse/wxParse.wxml"/> 
+  <template is="wxParse" data="{{wxParseData:description.nodes}}" />

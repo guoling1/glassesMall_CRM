@@ -21,7 +21,8 @@
     "pages/customList/customList",
     "pages/customInfo/customInfo",
     "pages/customInfoAdd/customInfoAdd",
-    "pages/mask/mask"
+    "pages/mask/mask",
+    "pages/myShop/myShop"
   ],
   "window": {
     "backgroundTextStyle": "dark",

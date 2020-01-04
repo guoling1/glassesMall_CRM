@@ -32,23 +32,53 @@ Page({
     typeListJP: [],
     indexJP: 0,
     typeListYX:[],
-    indexYX:0
+    indexYX:0,
+    desc:'',
+    lensData:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options.pid)
+    console.log(options.cid)
+    if (options.cid){
+      this.getLensData(options.cid)
+      this.setData({
+        cid: options.cid,
+        rLuoyanshili: this.data.lensData.rLuoyanshili,
+        rQiujing: this.data.lensData.rQiujing,
+        rZhujing: this.data.lensData.rZhujing,
+        rZhouxiang: this.data.lensData.rZhouxiang,
+        rJiaozhengshili: this.data.lensData.rJiaozhengshili,
+        lLuoyanshili: this.data.lensData.lLuoyanshili,
+        lQiujing: this.data.lensData.lQiujing,
+        lZhujing: this.data.lensData.lZhujing,
+        lZhouxiang: this.data.lensData.lZhouxiang,
+        lJiaozhengshili: this.data.lensData.lJiaozhengshili,
+        yuanyongtongju: this.data.lensData.yuanyongtongju,
+        yongtu: this.data.lensData.yongtu,
+        jiangkuang: this.data.lensData.jiangkuang,
+        jiangpian: this.data.lensData.jiangpian,
+        yinxing: this.data.lensData.yinxing,
+        price: this.data.lensData.price,
+        createDate: this.data.lensData.createDate,
+        indexYT: this.data.lensData.indexYT,
+        indexJK: this.data.lensData.indexJK,
+        indexJP: this.data.lensData.indexJP,
+        indexYX: this.data.lensData.indexYX,
+        desc: this.data.lensData.desc
+      })
+    }
     this.setData({
       pid:options.pid
     })
     this.getJKTypes()
     this.getJPTypes()
     this.getYXTypes()
+    
   },
   formSubmit(e) {
-    // console.log(JSON.stringify(e.detail.value))
     var data = e.detail.value,
     that = this;
     if (data.jiangkuang!==''){
@@ -63,9 +93,6 @@ Page({
     if (data.createDate =='请选择配镜日期'){
       data.createDate=''
     }
-    // data.loginName = this.data.loginName;
-    // data.name = this.data.name;
-    // data.password = this.data.password;
     console.log(data)
     var flag = true;
     // for (var i in data) {
@@ -75,7 +102,7 @@ Page({
     // }
     if (flag) {
       data.pId = that.data.pid;
-      data.cId = '';
+      data.cId = that.data.cid;
       wx.request({
         url: app.globalData.url + '/rest/sys/customersDetail1',
         method: 'post',
@@ -110,6 +137,32 @@ Page({
         icon: 'none'
       })
     }
+  },
+  getLensData(cid){
+    var that = this;
+    wx.request({
+      url: app.globalData.url + '/rest/sys/customersDetail/get',
+      method: 'post',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'X-AUTH-TOKEN': app.globalData.token
+      },
+      data: {
+        cId: cid
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          that.setData({
+            lensData: res.data.data
+          })
+        } else {
+          console.log('')
+        }
+      },
+      fail: function () {
+        console.log('系统错误');
+      }
+    })
   },
   bindTime(e){
     this.setData({

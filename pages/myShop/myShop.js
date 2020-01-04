@@ -1,4 +1,4 @@
-// pages/about/about.js
+// pages/myShop/myShop.js
 var WxParse = require('../../wxParse/wxParse.js');
 const app = getApp();
 Page({
@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    description: ''
+    description:''
   },
   getData(type) {
     var that = this;
@@ -18,7 +18,7 @@ Page({
         "Content-Type": "application/x-www-form-urlencoded",
         'X-AUTH-TOKEN': app.globalData.token
       },
-      data: {
+      data:{
         type: type
       },
       success: function (res) {
@@ -45,14 +45,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.setNavigationBarTitle({ title: options.title })
-    var type = 1;
-    if (options.title == '我的商城') {
-      type = 2
-    } else if (options.title == '帮助') {
-      type = 3
-    }
-
+      wx.setNavigationBarTitle({ title: options.title })
+      var type = 1;
+      if (options.title == '我的商城') {
+        type = 2
+      } else if (options.title == '帮助') {
+        type = 3
+      }
+    
     this.getData(type)
   },
 

@@ -5,17 +5,21 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
+    date:'',
+    week:'',
     income1:'',
     income2:'',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   onLoad: function () {
+    this.getDate()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
+      this.getIncome()
     } else if (this.data.canIUse){
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
@@ -25,6 +29,7 @@ Page({
           userInfo: res.data.user,
           hasUserInfo: true
         })
+        this.getIncome()
       }
     } else {
       // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -35,10 +40,21 @@ Page({
             userInfo: res.data.user,
             hasUserInfo: true
           })
+          this.getIncome()
         }
       })
     }
-    this.getIncome()
+    
+  },
+  getDate() {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth() + 1 > 9 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1);
+    let date = new Date().getDate() > 9 ? new Date().getDate() : '0' + new Date().getDate();
+    let week = ['日', '一', '二', '三', '四', '五', '六'];
+    this.setData({
+      date: year + '年' + month + '月' + date + '日',
+      week: week[new Date().getDay()]
+    })
   },
   // 获取配镜收入
   getIncome() {

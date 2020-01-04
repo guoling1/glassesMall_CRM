@@ -48,7 +48,7 @@ Page({
               'X-AUTH-TOKEN': app.globalData.token
             },
             data: {
-              ids: e.currentTarget.dataset.id
+              ids: e.currentTarget.dataset.cid
             },
             success: function (res) {
               if (res.data.code == 200) {
@@ -77,10 +77,8 @@ Page({
   },
   //修改
   edit: function(e) {
-    wx.showToast({
-      title: '编辑',
-      icon: 'success',
-      duration: 2000
+    wx.navigateTo({
+      url: '/pages/customInfoAdd/customInfoAdd?cid=' + e.currentTarget.dataset.cid + "&pid=" + e.currentTarget.dataset.pid
     })
   },
 
