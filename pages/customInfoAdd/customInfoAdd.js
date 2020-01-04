@@ -6,6 +6,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    cid:'',
+    pid:'',
     rLuoyanshili:'',
     rQiujing:'',
     rZhujing:'',
@@ -23,6 +25,8 @@ Page({
     yinxing:'',
     price:'',
     createDate:'请选择配镜日期',
+    typeListYT: ['请选择用途','远视','近视','两用','多用'],
+    indexYT: 0,
     typeListJK: [],
     indexJK: 0,
     typeListJP: [],
@@ -36,13 +40,17 @@ Page({
    */
   onLoad: function (options) {
     console.log(options.pid)
+    this.setData({
+      pid:options.pid
+    })
     this.getJKTypes()
     this.getJPTypes()
     this.getYXTypes()
   },
   formSubmit(e) {
     // console.log(JSON.stringify(e.detail.value))
-    var data = e.detail.value;
+    var data = e.detail.value,
+    that = this;
     if (data.jiangkuang!==''){
       data.jiangkuang = this.data.typeListJK[data.jiangkuang].id
     }
@@ -66,7 +74,7 @@ Page({
     //   }
     // }
     if (flag) {
-      data.pid = this.data.pid;
+      data.pid = that.data.pid;
       data.cid = '';
       wx.request({
         url: app.globalData.url + '/rest/sys/customersDetail1',
@@ -106,6 +114,12 @@ Page({
   bindTime(e){
     this.setData({
       createDate:e.detail.value
+    })
+  },
+  bindYT(e) {
+    this.setData({
+      indexYT: e.detail.value,
+      yongtu: e.detail.value
     })
   },
   // 获取商品类型

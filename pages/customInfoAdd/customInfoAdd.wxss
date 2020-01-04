@@ -67,4 +67,5 @@
   font-weight: bold;
   color: #fff;
   background: #4944fe;
+  border-radius: 0;
 }

@@ -37,14 +37,16 @@ Page({
         'X-AUTH-TOKEN': app.globalData.token
       },
       data: {
-        id:that.data.id
+        id:that.data.id,
+        page:1,
+        rows:10
       },
       success: function (res) {
-        if (res.data.code == 200) {
-          var data = res.data
+        if (res.data.success) {
+          var data = res.data.sysCustomers
           that.setData({
             fullname: data.fullname,
-            sex: data.sex,
+            sex: that.data.sexList[data.sex],
             age: data.age,
             phone: data.phone,
             jianpin: data.jianpin,
@@ -64,10 +66,8 @@ Page({
     })
   },
   formSubmit(e) {
-    console.log(JSON.stringify(e.detail.value))
     var data = e.detail.value;
     data.peijingdate = this.data.peijingdate;
-    console.log(data)
     var flag = true;
     for (var i in data) {
       if (data[i] === '' || data[i] == '请选择创建时间') {

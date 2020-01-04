@@ -1,48 +1,41 @@
 // pages/customInfo/customInfo.js
-const App = getApp()
+const app = getApp();
+var page = 0,
+  rows = 10;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    pid:'',
-    items: [
-      {
-        name: "1"
-      },
-      {
-        name: "2"
-      },
-      {
-        name: "3"
-      }
-    ]
+    pid: '',
+    customData:{},
+    lensList:[]
   },
   //手指触摸动作开始 记录起点X坐标
-  touchstart: function (e) {
+  touchstart: function(e) {
     //开始触摸时 重置所有删除
-    let data = App.touch._touchstart(e, this.data.items)
+    let data = app.touch._touchstart(e, this.data.lensList)
     this.setData({
-      items: data
+      lensList: data
     })
   },
 
   //滑动事件处理
-  touchmove: function (e) {
-    let data = App.touch._touchmove(e, this.data.items)
+  touchmove: function(e) {
+    let data = app.touch._touchmove(e, this.data.lensList)
     this.setData({
-      items: data
+      lensList: data
     })
   },
 
   //删除事件
-  del: function (e) {
+  del: function(e) {
     let that = this;
     wx.showModal({
       title: '提示',
       content: '确认要删除此条信息么？',
-      success: function (res) {
+      success: function(res) {
         if (res.confirm) {
           console.log('用户点击确定')
           that.data.items.splice(e.currentTarget.dataset.index, 1)
@@ -56,7 +49,7 @@ Page({
     })
   },
   //修改
-  edit: function (e) {
+  edit: function(e) {
     wx.showToast({
       title: '编辑',
       icon: 'success',
@@ -67,59 +60,106 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options.id)
+  onLoad: function(options) {
     this.setData({
       pid: options.id
+    })
+  },
+  // 获取客户信息
+  getCustom() {
+    var that = this;
+    wx.showLoading({
+      title: '玩命加载中',
+    })
+    page=page+1;
+    wx.request({
+      url: app.globalData.url + '/rest/sys/customers/get',
+      method: 'post',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'X-AUTH-TOKEN': app.globalData.token
+      },
+      data: {
+        id: that.data.pid,
+        page: page,
+        rows: rows
+      },
+      success: function(res) {
+        if (res.data.success) {
+          var data = res.data,
+          list=that.data.lensList;
+          that.setData({
+            customData: data.sysCustomers,
+            lensList: list.concat(data.list.rows)
+          })
+        } else {
+          wx.showToast({
+            title: res.data.content,
+            icon: 'none'
+          })
+        }
+        wx.hideLoading()
+      },
+      fail: function() {
+        console.log('系统错误');
+      }
     })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function() {
+    page = 0;
+    this.setData({
+      lensList: []
+    })
+    this.getCustom()
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  onReachBottom: function() {
+    page = 0;
+    this.setData({
+      lensList: []
+    })
+    this.getCustom()
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })

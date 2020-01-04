@@ -1,50 +1,50 @@
 <!--pages/customInfo/customInfo.wxml-->
 <view class="info">
   <image src="../../images/avatar-no.png" class="avatar"></image>
-  <view class="name">董琳琳</view>
-  <view class="sex">（女）</view>
+  <view class="name">{{customData.fullname}}</view>
+  <view class="sex">（{{customData.sex==1?'男':'女'}}）</view>
   <view class="list">
     <view class="item">
       <image src="../../images/custom1.png"></image>
-      <view class="right">年龄：19岁</view>
+      <view class="right">年龄：{{customData.age}}岁</view>
     </view>
     <view class="item">
       <image src="../../images/custom2.png"></image>
-      <view class="right">简拼：DLL</view>
+      <view class="right">简拼：{{customData.jianpin}}</view>
     </view>
     <view class="item">
       <image src="../../images/custom3.png"></image>
-      <view class="right">联系电话：18518915038</view>
+      <view class="right">联系电话：{{customData.phone}}</view>
     </view>
     <view class="item">
       <image src="../../images/custom4.png"></image>
-      <view class="right">属地：河北省邯郸市丛台区实验小学</view>
+      <view class="right">属地：{{customData.address}}</view>
     </view>
   </view>
 </view>
 
-<view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{items}}" wx:key="id">
+<view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{lensList}}" wx:key="id">
   <view class='content1' bindtap='showDetail' data-index="{{index}}">
     <image class="new" src="../../images/new.png"></image>
-    <view class="item">01.</view>
-    <view class="item">配镜时间：2019/12/04</view>
+    <view class="item">{{(index>9?'':'0')+(index+1)}}.</view>
+    <view class="item">配镜时间：{{item.createDate}}</view>
     <view class="item">用途：
-      <text>视近</text>
+      <text>{{item.yongtu||''}}</text>
     </view>
     <view class="item">镜框：
-      <text>tr90高硬度镜框</text>
+      <text>{{item.jiangkuang||''}}</text>
     </view>
     <view class="item">镜片：
-      <text>防蓝光1.60树脂镜片</text>
+      <text>{{item.jiangpian||''}}</text>
     </view>
     <view class="item">消费金额：
-      <text>￥432</text>
+      <text>￥{{item.price}}</text>
     </view>
     <view class="item">备注：
-      <text>2019/12/03进行验光配镜，并进行视力的检测。</text>
+      <text>{{item.desc||'无'}}</text>
     </view>
   </view>
-  <view class="del1" catchtap="edit" data-index="{{index}}">编辑</view>
-  <view class="del1 del2" catchtap="del" data-index="{{index}}">删除</view>
+  <view class="del1" catchtap="edit" data-cid="{{item.cid}}">编辑</view>
+  <view class="del1 del2" catchtap="del" data-cid="{{item.cid}}">删除</view>
 </view>
 <navigator url="/pages/customInfoAdd/customInfoAdd?pid={{pid}}" class="add">添加</navigator>
