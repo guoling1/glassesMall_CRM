@@ -10,7 +10,9 @@ Page({
     typeList: ['请选择商品类型', '镜框类型', '镜片类型', '隐形类型'],
     typeIndex: 0,
     dictInfo: '',
-    id:''
+    id:'',
+    title:'新增商品',
+    url:'/rest/sys/dict/saveOrUpdate'//新增商品
   },
   // 选择商品类型
   bindType(e) {
@@ -30,8 +32,15 @@ Page({
     }
     if (flag) {
       data.id = this.data.id
+      if (this.data.title =='周边商品'){
+        data={
+          id: this.data.id,
+          peripheryInfo: this.typeList[this.data.dictInfo],
+          peripheryName: this.data.dictName
+        }
+      }
       wx.request({
-        url: app.globalData.url + '/rest/sys/dict/saveOrUpdate',
+        url: app.globalData.url + this.data.url,
         method: 'post',
         header: {
           "Content-Type": "application/x-www-form-urlencoded",
@@ -85,6 +94,16 @@ Page({
         typeIndex:ind
       })
     }
+    if (options.title){
+      wx.setNavigationBarTitle({
+        title: options.title,
+      })
+      this.setData({
+        url:'/rest/sys/periphery/saveOrUpdate', //新增周边产品
+        typeList: ['请选择商品类型', '老花镜', '太阳镜', '镜框类型', '镜片类型', '防蓝光成品镜', '负离子镜', '眼疲劳用品', '护理液', '眼镜盒布', '按摩仪', '弱视用品', '矫正姿势类', '其他'],
+      })
+    }
+    
   },
 
   /**

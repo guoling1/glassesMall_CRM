@@ -11,18 +11,7 @@ Page({
     typeList:['请选择商品类型','镜框类型','镜片类型','隐形类型'],
     typeIndex:0,
     dictInfo:'',
-    goodsList:[],
-    items: [
-      {
-        name: "1"
-      },
-      {
-        name: "2"
-      },
-      {
-        name: "3"
-      }
-    ]
+    goodsList:[]
   },
   // 获取商品列表
   getGoodsList() {

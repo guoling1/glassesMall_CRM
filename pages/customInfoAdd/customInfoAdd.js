@@ -6,82 +6,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cid:'',
-    pid:'',
-    rLuoyanshili:'',
-    rQiujing:'',
-    rZhujing:'',
-    rZhouxiang:'',
-    rJiaozhengshili:'',
-    lLuoyanshili:'',
-    lQiujing:'',
-    lZhujing:'',
-    lZhouxiang:'',
-    lJiaozhengshili:'',
-    yuanyongtongju:'',
-    yongtu:'',
-    jiangkuang:'',
-    jiangpian:'',
-    yinxing:'',
-    price:'',
-    createDate:'请选择配镜日期',
-    typeListYT: ['请选择用途','远视','近视','两用','多用'],
+    cid: '',
+    pid: '',
+    rLuoyanshili: '',
+    rQiujing: '',
+    rZhujing: '',
+    rZhouxiang: '',
+    rJiaozhengshili: '',
+    lLuoyanshili: '',
+    lQiujing: '',
+    lZhujing: '',
+    lZhouxiang: '',
+    lJiaozhengshili: '',
+    yuanyongtongju: '',
+    yongtu: '',
+    jiangkuang: '',
+    jiangpian: '',
+    yinxing: '',
+    price: '',
+    createDate: '请选择配镜日期',
+    typeListYT: ['请选择用途', '远视', '近视', '两用', '多用'],
     indexYT: 0,
     typeListJK: [],
     indexJK: 0,
     typeListJP: [],
     indexJP: 0,
-    typeListYX:[],
-    indexYX:0,
-    desc:'',
-    lensData:{}
+    typeListYX: [],
+    indexYX: 0,
+    desc: '',
+    lensData: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    console.log(options.cid)
-    if (options.cid){
-      this.getLensData(options.cid)
-      this.setData({
-        cid: options.cid,
-        rLuoyanshili: this.data.lensData.rLuoyanshili,
-        rQiujing: this.data.lensData.rQiujing,
-        rZhujing: this.data.lensData.rZhujing,
-        rZhouxiang: this.data.lensData.rZhouxiang,
-        rJiaozhengshili: this.data.lensData.rJiaozhengshili,
-        lLuoyanshili: this.data.lensData.lLuoyanshili,
-        lQiujing: this.data.lensData.lQiujing,
-        lZhujing: this.data.lensData.lZhujing,
-        lZhouxiang: this.data.lensData.lZhouxiang,
-        lJiaozhengshili: this.data.lensData.lJiaozhengshili,
-        yuanyongtongju: this.data.lensData.yuanyongtongju,
-        yongtu: this.data.lensData.yongtu,
-        jiangkuang: this.data.lensData.jiangkuang,
-        jiangpian: this.data.lensData.jiangpian,
-        yinxing: this.data.lensData.yinxing,
-        price: this.data.lensData.price,
-        createDate: this.data.lensData.createDate,
-        indexYT: this.data.lensData.indexYT,
-        indexJK: this.data.lensData.indexJK,
-        indexJP: this.data.lensData.indexJP,
-        indexYX: this.data.lensData.indexYX,
-        desc: this.data.lensData.desc
-      })
-    }
+  onLoad: function(options) {
     this.setData({
-      pid:options.pid
+      pid: options.pid,
+      cid: options.cid || ''
     })
+    if (options.cid) {
+      this.getLensData(options.cid)
+    }
     this.getJKTypes()
     this.getJPTypes()
     this.getYXTypes()
-    
+
   },
   formSubmit(e) {
     var data = e.detail.value,
-    that = this;
-    if (data.jiangkuang!==''){
+      that = this;
+    if (data.jiangkuang !== '') {
       data.jiangkuang = this.data.typeListJK[data.jiangkuang].id
     }
     if (data.jiangpian !== '') {
@@ -90,16 +65,10 @@ Page({
     if (data.yinxing !== '') {
       data.yinxing = this.data.typeListYX[data.yinxing].id
     }
-    if (data.createDate =='请选择配镜日期'){
-      data.createDate=''
+    if (data.createDate == '请选择配镜日期') {
+      data.createDate = ''
     }
-    console.log(data)
     var flag = true;
-    // for (var i in data) {
-    //   if (data[i] === '') {
-    //     flag = false;
-    //   }
-    // }
     if (flag) {
       data.pId = that.data.pid;
       data.cId = that.data.cid;
@@ -111,12 +80,12 @@ Page({
           'X-AUTH-TOKEN': app.globalData.token
         },
         data: data,
-        success: function (res) {
-          if (res.data.code==200) {
+        success: function(res) {
+          if (res.data.code == 200) {
             wx.showToast({
               title: res.data.msg,
               icon: 'none',
-              duration:500
+              duration: 500
             })
             wx.navigateBack({})
           } else {
@@ -126,19 +95,18 @@ Page({
             })
           }
         },
-        fail: function () {
+        fail: function() {
           console.log('系统错误');
         }
       })
     } else {
-      console.log(data)
       wx.showToast({
         title: '请填写完整信息',
         icon: 'none'
       })
     }
   },
-  getLensData(cid){
+  getLensData(cid) {
     var that = this;
     wx.request({
       url: app.globalData.url + '/rest/sys/customersDetail/get',
@@ -150,23 +118,42 @@ Page({
       data: {
         cId: cid
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.code == 200) {
+          var data = res.data.data;
           that.setData({
-            lensData: res.data.data
+            lensData: data,
+            rLuoyanshili: data.rLuoyanshili,
+            rQiujing: data.rQiujing,
+            rZhujing: data.rZhujing,
+            rZhouxiang: data.rZhouxiang,
+            rJiaozhengshili: data.rJiaozhengshili,
+            lLuoyanshili: data.lLuoyanshili,
+            lQiujing: data.lQiujing,
+            lZhujing: data.lZhujing,
+            lZhouxiang: data.lZhouxiang,
+            lJiaozhengshili: data.lJiaozhengshili,
+            yuanyongtongju: data.yuanyongtongju,
+            jiangkuang: data.jiangkuang,
+            jiangpian: data.jiangpian,
+            yinxing: data.yinxing,
+            price: data.price,
+            createDate: new Date(data.createDate).toJSON().split('T')[0],
+            indexYT: data.yongtu,
+            desc: data.desc
           })
         } else {
           console.log('')
         }
       },
-      fail: function () {
+      fail: function() {
         console.log('系统错误');
       }
     })
   },
-  bindTime(e){
+  bindTime(e) {
     this.setData({
-      createDate:e.detail.value
+      createDate: e.detail.value
     })
   },
   bindYT(e) {
@@ -188,18 +175,32 @@ Page({
       data: {
         dictInfo: '镜框类型'
       },
-      success: function (res) {
+      success: function(res) {
         var data = JSON.parse(res.data.data);
-        data.unshift({ dictName: '请选择镜框', id: '' })
+        data.unshift({
+          dictName: '请选择镜框',
+          id: ''
+        })
         if (res.data.code == 200) {
           that.setData({
             typeListJK: data
           })
+          if (that.data.cid) {
+            var indexJK = 0;
+            for (var i = 0; i < that.data.typeListJK.length; i++) {
+              if (that.data.typeListJK[i].dictName == that.data.lensData.jiangkuang) {
+                indexJK = i;
+              }
+            }
+            that.setData({
+              indexJK: indexJK
+            })
+          }
         } else {
           console.log('')
         }
       },
-      fail: function () {
+      fail: function() {
         console.log('系统错误');
       }
     })
@@ -222,18 +223,33 @@ Page({
       data: {
         dictInfo: '镜片类型'
       },
-      success: function (res) {
+      success: function(res) {
         var data = JSON.parse(res.data.data);
-        data.unshift({ dictName: '请选择镜片', id: '' })
+        data.unshift({
+          dictName: '请选择镜片',
+          id: ''
+        })
         if (res.data.code == 200) {
           that.setData({
             typeListJP: data
           })
+          if (that.data.cid) {
+            var indexJP = 0;
+            for (var i = 0; i < that.data.typeListJP.length; i++) {
+              if (that.data.typeListJP[i].dictName == that.data.lensData.jiangpian) {
+                indexJP = i;
+              }
+            }
+            that.setData({
+              indexJP: indexJP
+            })
+          }
+
         } else {
           console.log('')
         }
       },
-      fail: function () {
+      fail: function() {
         console.log('系统错误');
       }
     })
@@ -256,18 +272,32 @@ Page({
       data: {
         dictInfo: '隐形类型'
       },
-      success: function (res) {
+      success: function(res) {
         var data = JSON.parse(res.data.data);
-        data.unshift({ dictName: '请选择隐形', id: '' })
+        data.unshift({
+          dictName: '请选择隐形',
+          id: ''
+        })
         if (res.data.code == 200) {
           that.setData({
             typeListYX: data
           })
+          if (that.data.cid) {
+            var indexYX = 0;
+            for (var i = 0; i < that.data.typeListYX.length; i++) {
+              if (that.data.typeListYX[i].dictName == that.data.lensData.yinxing) {
+                indexYX = i;
+              }
+            }
+            that.setData({
+              indexYX: indexYX
+            })
+          }
         } else {
           console.log('')
         }
       },
-      fail: function () {
+      fail: function() {
         console.log('系统错误');
       }
     })
@@ -282,49 +312,49 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   }
 })
