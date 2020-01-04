@@ -53,6 +53,6 @@
     <view class="date">创建时间：2019/10/12</view>
   </view>
 </view> -->
-<navigator class="fix" url="/pages/goodsAdd/goodsAdd?title=周边商品">
+<navigator class="fix" url="/pages/goodsAdd/goodsAdd?title=周边产品">
   <image src="../../images/add.png"></image>
 </navigator>

@@ -35,7 +35,7 @@ Page({
       data: {
         page: page,
         rows: rows,
-        dictInfo: that.data.dictInfo
+        peripheryInfo: that.data.dictInfo
       },
       success: function (res) {
         var list = that.data.goodsList
@@ -92,7 +92,7 @@ Page({
             title: '删除中',
           })
           wx.request({
-            url: getApp().globalData.url + '/rest/sys/dict/delete?ids=' + e.currentTarget.dataset.id,
+            url: getApp().globalData.url + '/rest/sys/periphery/delete?ids=' + e.currentTarget.dataset.id,
             method: 'DELETE',
             header: {
               // "Content-Type": "application/x-www-form-urlencoded",
@@ -127,7 +127,7 @@ Page({
   edit: function (e) {
     console.log(JSON.stringify(e.currentTarget.dataset))
     wx.navigateTo({
-      url: '/pages/goodsAdd/goodsAdd?id=' + e.currentTarget.dataset.id + '&dictName=' + e.currentTarget.dataset.dictname + '&dictInfo=' + e.currentTarget.dataset.dictinfo
+      url: '/pages/goodsAdd/goodsAdd?id=' + e.currentTarget.dataset.id + '&dictName=' + e.currentTarget.dataset.dictname + '&dictInfo=' + e.currentTarget.dataset.dictinfo+"&title=周边产品"
     })
   },
   /**

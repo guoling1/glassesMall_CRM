@@ -23,6 +23,7 @@ Page({
   },
   formSubmit(e) {
     var data = e.detail.value;
+    console.log(data)
     data.dictInfo = this.data.dictInfo;
     var flag = true;
     for (var i in data) {
@@ -32,11 +33,11 @@ Page({
     }
     if (flag) {
       data.id = this.data.id
-      if (this.data.title =='周边商品'){
+      if (this.data.title =='周边产品'){
         data={
           id: this.data.id,
-          peripheryInfo: this.typeList[this.data.dictInfo],
-          peripheryName: this.data.dictName
+          peripheryInfo: this.data.dictInfo,
+          peripheryName: e.detail.value.dictName
         }
       }
       wx.request({
@@ -99,6 +100,7 @@ Page({
         title: options.title,
       })
       this.setData({
+        title: options.title,
         url:'/rest/sys/periphery/saveOrUpdate', //新增周边产品
         typeList: ['请选择商品类型', '老花镜', '太阳镜', '镜框类型', '镜片类型', '防蓝光成品镜', '负离子镜', '眼疲劳用品', '护理液', '眼镜盒布', '按摩仪', '弱视用品', '矫正姿势类', '其他'],
       })
