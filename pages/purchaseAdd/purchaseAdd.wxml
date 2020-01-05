@@ -1,0 +1,146 @@
+<!--pages/purchaseAdd/purchaseAdd.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="line"></view>
+  
+  <view class="item">
+    <text class="name">老花镜：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexlhj" mode="selector" value="{{indexlhj}}" data-num="1" data-name="lhj" data-list="listlhj" bindchange="bindData" range="{{listlhj}}" range-key="peripheryName">
+      <view class="picker">
+        {{listlhj[indexlhj].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  
+  <view class="item">
+    <text class="name">老花镜：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexlhj" mode="selector" value="{{indexlhj}}" data-num="2" data-name="lhj" data-list="listlhj" bindchange="bindData" range="{{listlhj}}" range-key="peripheryName">
+      <view class="picker">
+        {{listlhj[indexlhj].peripheryName}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="item">
+    <text class="name">镜框类型：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexjk" mode="selector" value="{{indexjk}}" data-num="3" data-name="jk" data-list="listjk" bindchange="bindData" range="{{listjk}}" range-key="peripheryName">
+      <view class="picker">
+        {{listjk[indexjk].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">镜片类型：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexjp" mode="selector" value="{{indexjp}}" data-num="4" data-name="jp" data-list="listjp" bindchange="bindData" range="{{listjp}}" range-key="peripheryName">
+      <view class="picker">
+        {{listjp[indexjp].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">防蓝光镜：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexflg" mode="selector" value="{{indexflg}}" data-num="5" data-name="flg" data-list="listflg" bindchange="bindData" range="{{listflg}}" range-key="peripheryName">
+      <view class="picker">
+        {{listflg[indexflg].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">负离子镜：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexflz" mode="selector" value="{{indexflz}}" data-num="6" data-name="flz" data-list="listflz" bindchange="bindData" range="{{listflz}}" range-key="peripheryName">
+      <view class="picker">
+        {{listflz[indexflz].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">眼疲劳品：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexypl" mode="selector" value="{{indexypl}}" data-num="7" data-name="ypl" data-list="listypl" bindchange="bindData" range="{{listypl}}" range-key="peripheryName">
+      <view class="picker">
+        {{listypl[indexypl].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">护理液：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexhly" mode="selector" value="{{indexhly}}" data-num="8" data-name="hly" data-list="listhly" bindchange="bindData" range="{{listhly}}" range-key="peripheryName">
+      <view class="picker">
+        {{listhly[indexhly].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">眼镜盒布：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexyjh" mode="selector" value="{{indexyjh}}" data-num="9" data-name="yjh" data-list="listyjh" bindchange="bindData" range="{{listyjh}}" range-key="peripheryName">
+      <view class="picker">
+        {{listyjh[indexyjh].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">按摩仪：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexamy" mode="selector" value="{{indexamy}}" data-num="10" data-name="amy" data-list="listamy" bindchange="bindData" range="{{listamy}}" range-key="peripheryName">
+      <view class="picker">
+        {{listamy[indexamy].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">弱视用品：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexrs" mode="selector" value="{{indexrs}}" data-num="11" data-name="rs" data-list="listrs" bindchange="bindData" range="{{listrs}}" range-key="peripheryName">
+      <view class="picker">
+        {{listrs[indexrs].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">矫正姿势：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexjz" mode="selector" value="{{indexjz}}" data-num="12" data-name="jz" data-list="listjz" bindchange="bindData" range="{{listjz}}" range-key="peripheryName">
+      <view class="picker">
+        {{listjz[indexjz].peripheryName}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">其他：</text>
+    <!-- <input class="inp" value="jiangkuang" name="jiangkuang" placeholder="请选择镜框"></input> -->
+    <picker class="inp" name="indexqt" mode="selector" value="{{indexqt}}" data-num="13" data-name="qt" data-list="listqt" bindchange="bindData" range="{{listqt}}" range-key="peripheryName">
+      <view class="picker">
+        {{listqt[indexqt].peripheryName}}
+      </view>
+    </picker>
+  </view>
+
+  <view class="line"></view>
+  <view class="item" style="margin-top:30rpx;">
+    <text class="name">消费金额：</text>
+    <input class="inp" value="{{saleMoney}}" name="saleMoney"></input>
+  </view>
+  <view class="item">
+    <text class="name">配镜日期：</text>
+    <!-- <input class="inp" value="createDate" name="createDate"></input> -->
+    <picker class="inp" value="{{createTime}}" name="createTime" mode="date" bindchange="bindTime">
+      <view class="picker">
+        {{createTime}}
+      </view>
+    </picker>
+    <image src="../../images/calendar.png"></image>
+  </view>
+  <view class="line"></view>
+  <view class="remark">
+    <view class="name">备注</view>
+    <textarea value="{{desc}}" name="desc"></textarea>
+  </view>
+  <button formType="submit" class="submit">保存</button>
+</form>

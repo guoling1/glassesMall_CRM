@@ -1,0 +1,148 @@
+/* pages/purchase/purchase.wxss */
+.search-box {
+  padding: 44rpx 0 56rpx;
+  background: #fff;
+  box-shadow: 0 20rpx 20rpx #fbfcff;
+  border-top: 20rpx solid #f2f2f3;
+  font-size: 0;
+}
+.search-box .name{
+  margin: 0 auto 30rpx;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  background: #f9f9f9;
+  border: 1rpx solid #e4e4e4;
+  border-radius: 29rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.search {
+  margin: 0 auto 30rpx;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  background: #f9f9f9;
+  border: 1rpx solid #e4e4e4;
+  border-radius: 29rpx;
+  font-size: 24rpx;
+}
+
+.search .inp {
+  display: inline-block;
+  margin: 0 0 0 32rpx;
+  width: 200rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  background: transparent;
+}
+.search .calendar {
+  display: inline-block;
+  margin-right: 52rpx;
+  width: 27rpx;
+  height: 23rpx;
+  vertical-align: middle;
+}
+
+.submit {
+  margin: 0 auto;
+  width: 643rpx;
+  height: 58rpx;
+  line-height: 58rpx;
+  background: #4944fe;
+  border-radius: 29rpx;
+  font-size: 24rpx;
+  color: #fff;
+}
+.item {
+  margin: 0 auto;
+  padding: 20rpx 0;
+  width: 690rpx;
+  font-weight: 600;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+
+.item .date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.item .name {
+  display: inline-block;
+  width: 300rpx;
+}
+.fix {
+  position: fixed;
+  right: 80rpx;
+  bottom: 250rpx;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.fix image {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.touch-item1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+  font-size: 0;
+}
+ 
+.content1 {
+  width: 100%;
+  /* line-height: 50rpx; */
+  margin-right: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  -webkit-transform: translateX(196rpx);
+  transform: translateX(196rpx);
+  margin-left: -196rpx;
+}
+ 
+.del1 {
+  background-color: #4944fe;
+  width: 98rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  -webkit-transform: translateX(196rpx);
+  transform: translateX(196rpx);
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  font-size: 24rpx;
+}
+
+.del2 {
+  background-color: #e4373b;
+  margin-left: -1rpx;
+}
+ 
+.touch-move-active1 .content1, .touch-move-active1 .del1 {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+}
+ 
+.row1 {
+  display: flex;
+  flex-direction: row;
+}
+ 
+.column1 {
+  display: flex;
+  flex-direction: column;
+}
+ 
+.full_width1 {
+  width: 100%;
+}

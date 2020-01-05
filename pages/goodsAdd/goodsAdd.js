@@ -81,6 +81,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (options.title) {
+      wx.setNavigationBarTitle({
+        title: options.title,
+      })
+      this.setData({
+        title: options.title,
+        url: '/rest/sys/periphery/saveOrUpdate', //新增周边产品
+        typeList: ['请选择商品类型', '老花镜', '太阳镜', '镜框类型', '镜片类型', '防蓝光成品镜', '负离子镜', '眼疲劳用品', '护理液', '眼镜盒布', '按摩仪', '弱视用品', '矫正姿势类', '其他'],
+      })
+    }
     if(options.id){
       var ind;
       for(var i=0;i<this.data.typeList.length;i++){
@@ -95,17 +105,6 @@ Page({
         typeIndex:ind
       })
     }
-    if (options.title){
-      wx.setNavigationBarTitle({
-        title: options.title,
-      })
-      this.setData({
-        title: options.title,
-        url:'/rest/sys/periphery/saveOrUpdate', //新增周边产品
-        typeList: ['请选择商品类型', '老花镜', '太阳镜', '镜框类型', '镜片类型', '防蓝光成品镜', '负离子镜', '眼疲劳用品', '护理液', '眼镜盒布', '按摩仪', '弱视用品', '矫正姿势类', '其他'],
-      })
-    }
-    
   },
 
   /**

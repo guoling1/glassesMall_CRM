@@ -51,8 +51,8 @@
     <image src="../../images/nav8.png"></image>
     <view>我的商城</view>
   </navigator>
-  <navigator class="item" url="/pages/myShop/myShop?title=帮助">
-    <image src="../../images/nav9.png"></image>
-    <view>帮助</view>
+  <navigator class="item" url="/pages/purchase/purchase">
+    <image src="../../images/my2.png"></image>
+    <view>购买记录</view>
   </navigator>
 </view>

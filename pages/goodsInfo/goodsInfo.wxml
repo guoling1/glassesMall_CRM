@@ -28,17 +28,6 @@
 
 </view>
 
-
-
-<!-- <view class="list">
-  <view class="item">
-    <view class="top">
-      <text class="name">优学乐离焦</text>
-      <text class="type">镜片类型</text>
-    </view>
-    <view class="date">创建时间：2019/10/12</view>
-  </view>
-</view> -->
 <navigator class="fix" url="/pages/goodsAdd/goodsAdd">
   <image src="../../images/add.png"></image>
 </navigator>

@@ -1,17 +1,29 @@
-// pages/nearGoods/nearGoods.js
+// pages/purchase/purchase.js
 const app = getApp();
-var page = 0,
-  rows = 10;
+var page=0,
+rows=10;
 Page({
 
   /**
    * 页面的初始数据
    */
-  data: {   
-    typeList: ['请选择商品类型', '老花镜', '太阳镜', '镜框类型', '镜片类型', '防蓝光成品镜', '负离子镜', '眼疲劳用品', '护理液', '眼镜盒布', '按摩仪', '弱视用品', '矫正姿势类', '其他'],
-    typeIndex: 0,
-    dictInfo: '',
-    goodsList: []
+  data: {
+    fromTime: '统计开始时间',
+    toTime: '统计结束时间',
+    purchaseName:'',
+    goodsList:[]
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+  nameedit(e) {
+    this.setData({
+      purchaseName: e.detail.value,
+    })
   },
   // 获取商品列表
   getGoodsList() {
@@ -19,14 +31,17 @@ Page({
     wx.showLoading({
       title: '玩命加载中',
     })
-    if (that.data.dictInfo == '请选择商品类型') {
-      this.setData({
-        dictInfo: ''
-      })
+    var fromTime = '',
+      toTime = '';
+    if (this.data.fromTime != '统计开始时间') {
+      fromTime = this.data.fromTime;
+    }
+    if (this.data.toTime != '统计结束时间') {
+      toTime = this.data.toTime;
     }
     page = page + 1;
     wx.request({
-      url: getApp().globalData.url + '/rest/sys/periphery/view',
+      url: getApp().globalData.url + '/rest/sys/peripherySale/view',
       method: 'post',
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -35,7 +50,9 @@ Page({
       data: {
         page: page,
         rows: rows,
-        peripheryInfo: that.data.dictInfo
+        fromTime: fromTime,
+        ToTime: toTime,
+        purchaseName: that.data.purchaseName
       },
       success: function (res) {
         var list = that.data.goodsList
@@ -53,16 +70,14 @@ Page({
       }
     })
   },
-  // 选择商品类型
-  bindType(e) {
+  search(){
+    page=0;
     this.setData({
-      typeIndex: e.detail.value,
-      dictInfo: this.data.typeList[e.detail.value],
       goodsList: []
     })
-    page = 0;
     this.getGoodsList()
   },
+  
   //手指触摸动作开始 记录起点X坐标
   touchstart: function (e) {
     //开始触摸时 重置所有删除
@@ -92,7 +107,7 @@ Page({
             title: '删除中',
           })
           wx.request({
-            url: getApp().globalData.url + '/rest/sys/periphery/delete?ids=' + e.currentTarget.dataset.id,
+            url: getApp().globalData.url + '/rest/sys/peripherySale/delete?ids=' + e.currentTarget.dataset.id,
             method: 'DELETE',
             header: {
               // "Content-Type": "application/x-www-form-urlencoded",
@@ -127,14 +142,18 @@ Page({
   edit: function (e) {
     console.log(JSON.stringify(e.currentTarget.dataset))
     wx.navigateTo({
-      url: '/pages/goodsAdd/goodsAdd?id=' + e.currentTarget.dataset.id + '&dictName=' + e.currentTarget.dataset.dictname + '&dictInfo=' + e.currentTarget.dataset.dictinfo+"&title=周边产品"
+      url: '/pages/purchaseAdd/purchaseAdd?peripherySaleId=' + e.currentTarget.dataset.id
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
+  bindFromTime(e) {
+    this.setData({
+      fromTime: e.detail.value
+    })
+  },
+  bindToTime(e) {
+    this.setData({
+      toTime: e.detail.value
+    })
   },
 
   /**

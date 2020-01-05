@@ -26,6 +26,10 @@
   <image src='../../images/my3.png'></image>
   <text>其他推广</text>
 </navigator>
+<navigator url='/pages/myShop/myShop?title=帮助'>
+  <image src='../../images/nav9.png'></image>
+  <text>帮助</text>
+</navigator>
 <navigator url='/pages/changePwd/changePwd'>
   <image src='../../images/my4.png'></image>
   <text>修改密码</text>

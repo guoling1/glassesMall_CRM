@@ -30,29 +30,17 @@
   <view class='content1' data-id="{{item.id}}">
     <view class="item">
       <view class="top">
-        <text class="name">{{item.dictName}}</text>
-        <text class="type">{{item.dictInfo}}</text>
+        <text class="name">{{item.peripheryName}}</text>
+        <text class="type">{{item.peripheryInfo}}</text>
       </view>
       <view class="date">创建时间：{{item.createTime}}</view>
     </view>
   </view>
 
-  <view class="del1" catchtap="edit" data-id="{{item.id}}" data-dictName="{{item.dictName}}" data-dictInfo="{{item.dictInfo}}">编辑</view>
+  <view class="del1" catchtap="edit" data-id="{{item.id}}" data-dictName="{{item.peripheryName}}" data-dictInfo="{{item.peripheryInfo}}">编辑</view>
   <view class="del1 del2" catchtap="del" data-id="{{item.id}}">删除</view>
-
 </view>
 
-
-
-<!-- <view class="list">
-  <view class="item">
-    <view class="top">
-      <text class="name">优学乐离焦</text>
-      <text class="type">镜片类型</text>
-    </view>
-    <view class="date">创建时间：2019/10/12</view>
-  </view>
-</view> -->
 <navigator class="fix" url="/pages/goodsAdd/goodsAdd?title=周边产品">
   <image src="../../images/add.png"></image>
 </navigator>

@@ -22,7 +22,9 @@
     "pages/customInfo/customInfo",
     "pages/customInfoAdd/customInfoAdd",
     "pages/mask/mask",
-    "pages/myShop/myShop"
+    "pages/myShop/myShop",
+    "pages/purchase/purchase",
+    "pages/purchaseAdd/purchaseAdd"
   ],
   "window": {
     "backgroundTextStyle": "dark",
