@@ -1,4 +1,5 @@
 // pages/changePwd/changePwd.js
+const app = getApp()
 Page({
 
   /**
@@ -14,7 +15,44 @@ Page({
   onLoad: function (options) {
 
   },
-
+  formSubmit(e) {
+    console.log(e.detail.value)
+    var flag = true;
+    if (flag) {
+      wx.request({
+        url: app.globalData.url + '/rest/sys/users/changePassword',
+        method: 'post',
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          'X-AUTH-TOKEN': app.globalData.token
+        },
+        data: e.detail.value,
+        success: function (res) {
+          if (res.data.code == 200) {
+            wx.showToast({
+              title: res.data.msg,
+              icon: 'none',
+              duration: 500
+            })
+            wx.navigateBack({})
+          } else {
+            wx.showToast({
+              title: res.data.content,
+              icon: 'none'
+            })
+          }
+        },
+        fail: function () {
+          console.log('系统错误');
+        }
+      })
+    } else {
+      wx.showToast({
+        title: '请填写完整信息',
+        icon: 'none'
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

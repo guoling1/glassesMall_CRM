@@ -64,8 +64,6 @@ Page({
     this.setData(obj)
   },
   formSubmit(e) {
-    console.log(JSON.stringify(this.data))
-    console.log(JSON.stringify(e.detail.value))
     var data = this.data;
     var obj={
       peripherySaleId: data.peripherySaleId,
@@ -85,17 +83,6 @@ Page({
       type12: data.type12,
       type13: data.type13
     }
-    // var data = e.detail.value,
-    //   that = this;
-    // if (data.jiangkuang !== '') {
-    //   data.jiangkuang = this.data.typeListJK[data.jiangkuang].id
-    // }
-    // if (data.jiangpian !== '') {
-    //   data.jiangpian = this.data.typeListJP[data.jiangpian].id
-    // }
-    // if (data.yinxing !== '') {
-    //   data.yinxing = this.data.typeListYX[data.yinxing].id
-    // }
     if (obj.createTime == '请选择配镜日期') {
       obj.createTime = ''
     }
