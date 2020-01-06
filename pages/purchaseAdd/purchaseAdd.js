@@ -7,6 +7,7 @@ Page({
    */
   data: {
     peripherySaleId: '',
+    purchaseName:'',
     saleMoney: '',
     createTime: '请选择配镜日期',
     nameList:['lhj','tyj','jk','jp','flg','flz','ypl','hly','yjh','amy','rs','jz','qt'],
@@ -67,7 +68,8 @@ Page({
     var data = this.data;
     var obj={
       peripherySaleId: data.peripherySaleId,
-      saleMoney: data.saleMoney,
+      purchaseName: e.detail.value.purchaseName,
+      saleMoney: e.detail.value.saleMoney,
       createTime: data.createTime,
       type1: data.type1,
       type2: data.type2,
@@ -141,6 +143,7 @@ Page({
             lensData: data,
             createTime: data.createTime,
             saleMoney: data.saleMoney,
+            purchaseName: data.purchaseName,
             type1:data.type1,
             type2: data.type2,
             type3: data.type3,
