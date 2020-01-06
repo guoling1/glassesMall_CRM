@@ -141,10 +141,5 @@
     </picker>
     <image src="../../images/calendar.png"></image>
   </view>
-  <view class="line"></view>
-  <view class="remark">
-    <view class="name">备注</view>
-    <textarea value="{{desc}}" name="desc"></textarea>
-  </view>
   <button formType="submit" class="submit">保存</button>
 </form>

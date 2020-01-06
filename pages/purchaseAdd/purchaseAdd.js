@@ -85,9 +85,29 @@ Page({
       type12: data.type12,
       type13: data.type13
     }
+    if (obj.purchaseName == '') {
+      wx.showToast({
+        title: '请填写姓名',
+        icon: 'none'
+      })
+      return
+    }
+    if (obj.saleMoney == '') {
+      wx.showToast({
+        title: '请填写金额',
+        icon: 'none'
+      })
+      return
+    }
     if (obj.createTime == '请选择配镜日期') {
       obj.createTime = ''
+      wx.showToast({
+        title: '请选择配镜时间',
+        icon: 'none'
+      })
+      return
     }
+    
     var flag = true;
     if (flag) {
       wx.request({

@@ -11,7 +11,7 @@ App({
   globalData: {
     userInfo: null,
     token:'',
-    url: 'http://5f46a6.natappfree.cc'
+    url: 'http://v7s92y.natappfree.cc'
   },
   // 获取登录信息
   getUser() {

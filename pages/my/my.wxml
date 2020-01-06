@@ -18,14 +18,14 @@
   <image src='../../images/my1.png'></image>
   <text>我的店铺</text>
 </navigator>
-<navigator url='/pages/myCompany/myCompany'>
+<!-- <navigator url='/pages/myCompany/myCompany'>
   <image src='../../images/my2.png'></image>
   <text>我的推广</text>
 </navigator>
 <navigator url='/pages/myTopic/myTopic'>
   <image src='../../images/my3.png'></image>
   <text>其他推广</text>
-</navigator>
+</navigator> -->
 <navigator url='/pages/myShop/myShop?title=帮助'>
   <image src='../../images/nav9.png'></image>
   <text>帮助</text>

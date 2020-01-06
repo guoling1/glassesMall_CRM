@@ -17,6 +17,13 @@ Page({
   },
   formSubmit(e) {
     console.log(e.detail.value)
+    if (e.detail.value.password != e.detail.value.confirmPassword){
+      wx.showToast({
+        title: '密码不一致',
+        icon:'none'
+      })
+      return 
+    }
     var flag = true;
     if (flag) {
       wx.request({
@@ -37,7 +44,7 @@ Page({
             wx.navigateBack({})
           } else {
             wx.showToast({
-              title: res.data.content,
+              title: res.data.msg,
               icon: 'none'
             })
           }

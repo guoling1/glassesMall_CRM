@@ -1,19 +1,87 @@
-// pages/myStore/myStore.js
+ // pages/myStore/myStore.js
+ const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    loginName:'',
+    name: '',
+    shopName: '',
+    phone: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getData()
   },
+  getData() {
+    var that = this;
+    wx.request({
+      url: getApp().globalData.url + '/rest/sys/users/getUser',
+      method: 'post',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'X-AUTH-TOKEN': app.globalData.token
+      },
+      data: {
+        Openid: app.globalData.userInfo.openid
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          var data = res.data.data;
+          app.globalData.userInfo = data;
+          that.setData({
+            loginName: data.loginName,
+            name: data.name,
+            shopName: data.shopName,
+            phone: data.phone
+          })
+         
+        } else {
+          console.log('')
+        }
+      },
+      fail: function () {
+        console.log('系统错误');
+      }
+    })
+  },
+  formSubmit(e) {
+    var that = this;
+    wx.request({
+      url: getApp().globalData.url + '/rest/sys/users/changeInfo',
+      method: 'post',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'X-AUTH-TOKEN': app.globalData.token
+      },
+      data:  e.detail.value,
+      success: function (res) {
+        if (res.data.code == 200) {
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
+          setTimeout(function () {
+            wx.navigateBack({})
+          })
+        } else {
+          console.log('')
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: res.data.msg,
+          icon: 'none'
+        })
+      }
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

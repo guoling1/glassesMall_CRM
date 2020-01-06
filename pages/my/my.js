@@ -13,13 +13,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
+    
   },
   recharge(){
     wx.request({
-      url: getApp().globalData.url + '/rest/payment',
+      url: getApp().globalData.url + '/payment',
       method: 'post',
       header: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -63,7 +61,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfo: app.globalData.userInfo
+    })
   },
 
   /**
