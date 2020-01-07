@@ -59,6 +59,9 @@ Page({
   // 获取配镜收入
   getIncome() {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/income',
       method: 'post',
@@ -67,14 +70,23 @@ Page({
         'X-AUTH-TOKEN': app.globalData.token
       },
       success: function (res) {
-        if (res.data.code == 200) {
-          that.setData({
-            income1: res.data.data.income1,
-            income2: res.data.data.income2
+        if (res.data.code == 305) {
+          wx.showToast({
+            title: '请充值后使用',
+            icon:'none'
           })
-        } else {
-          console.log('')
+          setTimeout(function () {
+            wx.switchTab({
+              url: '/pages/my/my',
+            })
+          }, 1000)
+          return
         }
+          that.setData({
+            income1: res.data.income1,
+            income2: res.data.income2
+          })
+        wx.hideLoading()
       },
       fail: function () {
         console.log('系统错误');

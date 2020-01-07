@@ -16,6 +16,11 @@ Page({
     
   },
   recharge(){
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     wx.request({
       url: getApp().globalData.url + '/payment',
       method: 'post',
@@ -27,20 +32,27 @@ Page({
         Openid: this.data.userInfo.openid
       },
       success: function (res) {
-        if (res.data.code == 0) {
+        if (res.data.code == 200) {
+          var data = res.data.data;
           wx.requestPayment(
             {
-              'timeStamp': '',
-              'nonceStr': '',
-              'package': '',
+              'timeStamp': data.timeStamp,
+              'nonceStr': data.nonceStr,
+              'package': data.package,
               'signType': 'MD5',
-              'paySign': '',
-              'success': function (res) { },
+              'paySign': data.paySign,
+              'success': function (res) {
+
+                wx.hideLoading()
+                that.getData()
+               },
               'fail': function (res) { },
               'complete': function (res) { }
             })
         } else {
           console.log('')
+
+          wx.hideLoading()
         }
         wx.hideLoading();
       },
@@ -49,7 +61,36 @@ Page({
       }
     })
   },
-
+  getData() {
+    var that = this;
+    wx.showLoading({
+      title: '加载中',
+      icon:'none'
+    })
+    wx.request({
+      url: getApp().globalData.url + '/rest/sys/users/getUser',
+      method: 'post',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded",
+        'X-AUTH-TOKEN': app.globalData.token
+      },
+      data: {
+        Openid: app.globalData.userInfo.openid
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          var data = res.data.data;
+          app.globalData.userInfo = data;
+        } else {
+          console.log('')
+        }
+        wx.hideLoading()
+      },
+      fail: function () {
+        console.log('系统错误');
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
