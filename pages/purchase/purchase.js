@@ -61,7 +61,10 @@ Page({
             goodsList: list.concat(res.data.rows)
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
         wx.hideLoading();
       },
@@ -124,7 +127,10 @@ Page({
                 })
                 that.getGoodsList()
               } else {
-                console.log('')
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none'
+                })
               }
               wx.hideLoading();
             },

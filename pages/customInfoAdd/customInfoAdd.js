@@ -72,6 +72,10 @@ Page({
     if (flag) {
       data.pId = that.data.pid;
       data.cId = that.data.cid;
+      wx.showLoading({
+        title: '加载中',
+        icon: 'none'
+      })
       wx.request({
         url: app.globalData.url + '/rest/sys/customersDetail1',
         method: 'post',
@@ -94,6 +98,7 @@ Page({
               icon: 'none'
             })
           }
+          wx.hideLoading()
         },
         fail: function() {
           console.log('系统错误');
@@ -108,6 +113,10 @@ Page({
   },
   getLensData(cid) {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     wx.request({
       url: app.globalData.url + '/rest/sys/customersDetail/get',
       method: 'post',
@@ -143,8 +152,12 @@ Page({
             desc: data.desc
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function() {
         console.log('系统错误');
@@ -165,6 +178,10 @@ Page({
   // 获取商品类型
   getJKTypes() {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     wx.request({
       url: app.globalData.url + '/rest/sys/dict/allDictByInfo1',
       method: 'post',
@@ -197,8 +214,12 @@ Page({
             })
           }
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function() {
         console.log('系统错误');
@@ -213,6 +234,9 @@ Page({
   },
   getJPTypes() {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: app.globalData.url + '/rest/sys/dict/allDictByInfo1',
       method: 'post',
@@ -246,8 +270,12 @@ Page({
           }
 
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function() {
         console.log('系统错误');
@@ -262,6 +290,9 @@ Page({
   },
   getYXTypes() {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: app.globalData.url + '/rest/sys/dict/allDictByInfo1',
       method: 'post',
@@ -294,8 +325,12 @@ Page({
             })
           }
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function() {
         console.log('系统错误');

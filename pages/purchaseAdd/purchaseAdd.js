@@ -110,6 +110,9 @@ Page({
     
     var flag = true;
     if (flag) {
+      wx.showLoading({
+        title: '加载中',
+      })
       wx.request({
         url: app.globalData.url + '/rest/sys/peripherySale/saveOrUpdate',
         method: 'post',
@@ -132,6 +135,7 @@ Page({
               icon: 'none'
             })
           }
+          wx.hideLoading()
         },
         fail: function () {
           console.log('系统错误');
@@ -146,6 +150,9 @@ Page({
   },
   getLensData(peripherySaleId) {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: app.globalData.url + '/rest/sys/peripherySale/get',
       method: 'get',
@@ -179,8 +186,12 @@ Page({
             type13: data.type13,
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function () {
         console.log('系统错误');

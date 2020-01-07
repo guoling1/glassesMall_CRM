@@ -25,6 +25,9 @@ Page({
       })
     }
     page = page + 1;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/dict/view',
       method: 'post',
@@ -44,7 +47,10 @@ Page({
             goodsList: list.concat(res.data.rows)
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
         }
         wx.hideLoading();
       },
@@ -109,7 +115,10 @@ Page({
                 })
                 that.getGoodsList()
               } else {
-                console.log('')
+                wx.showToast({
+                  title: res.data.msg,
+                  icon:'none'
+                })
               }
               wx.hideLoading();
             },

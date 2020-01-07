@@ -70,7 +70,7 @@ Page({
         'X-AUTH-TOKEN': app.globalData.token
       },
       success: function (res) {
-        if (res.data.code == 305) {
+        if (res.data.code == 335) {
           wx.showToast({
             title: '请充值后使用',
             icon:'none'

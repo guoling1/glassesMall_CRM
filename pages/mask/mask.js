@@ -16,9 +16,11 @@ Page({
   },
   getUserInfo: function(e) {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.getSetting({
       success: function(res) {
-        console.log(res)
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称
           wx.login({
@@ -40,6 +42,7 @@ Page({
                         code: code
                       },
                       success: function(res) {
+                        wx.hideLoading()
                         if (res.data.code == 200) {
                           var data = res.data.data;
                           getApp().globalData.userInfo = data.user;

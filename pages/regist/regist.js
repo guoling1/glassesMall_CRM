@@ -46,23 +46,16 @@ Page({
     var data = e.detail.value;
     if(this.data.type=="老店"){
       data.type = 1;
-      // data.userCode = this.data.userCode
     } else if (this.data.type == "新店") {
       data.type = 0;
     }
     data.openid = this.data.openid;
     data.avatarUrl = this.data.avatarUrl;
-    // data.loginName = this.data.loginName;
-    // data.name = this.data.name;
-    // data.password = this.data.password;
     if (this.data.sex == "男") {
       data.sex = 1;
     } else if (this.data.type == "女") {
       data.sex = 0;
     }
-    // data.shopName = this.data.shopName;
-    // data.phone = this.data.phone;
-    console.log(data)
     var flag = true;
     for (var i in data) {
       if (data[i]==='') {
@@ -77,6 +70,9 @@ Page({
         })
         return;
       }
+      wx.showLoading({
+        title: '加载中',
+      })
       wx.request({
         url: app.globalData.url + '/register',
         method: 'post',
@@ -97,6 +93,7 @@ Page({
               icon: 'none'
             })
           }
+          wx.hideLoading()
         },
         fail: function () {
           console.log('系统错误');

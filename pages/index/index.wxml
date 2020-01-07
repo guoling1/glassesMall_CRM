@@ -3,20 +3,17 @@
 <view class="date">{{date}} 星期{{week}}</view>
 <view class="census">
   <view class="item">
-  <navigator url="/pages/income/income">
     <view class="name">总收入 (元)</view>
     <view class="price">{{(income1||0)+(income2||0)}}</view>
-  </navigator>
-    
   </view>
-  <view class="item">
+  <navigator class="item" url="/pages/customList/customList">
     <view class="name">配镜收入 (元)</view>
     <view class="price">{{income1||0}}</view>
-  </view>
-  <view class="item">
+  </navigator>
+  <navigator class="item" url="/pages/purchase/purchase">
     <view class="name">周边收入 (元)</view>
     <view class="price">{{income2||0}}</view>
-  </view>
+  </navigator>
 </view>
 <view class="nav">
   <navigator class="item" url="/pages/goodsInfo/goodsInfo">

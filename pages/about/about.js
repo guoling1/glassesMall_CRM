@@ -11,6 +11,10 @@ Page({
   },
   getData(type) {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/help/activate/view',
       method: 'post',
@@ -24,16 +28,14 @@ Page({
       success: function (res) {
         if (res.data.code == 200) {
           var data = res.data.data;
-          console.log(JSON.stringify(data))
-          // data.description = data.description.replace(/http:\/\/localhost\//, app.globalData.url)
           that.setData({
-            description: data.description,
-            // helpAnswer: res.data.data.helpAnswer
+            description: data.description
           })
           WxParse.wxParse('description', 'html', data.description, that, 15);
         } else {
           console.log('')
         }
+        wx.hideLoading()
       },
       fail: function () {
         console.log('系统错误');

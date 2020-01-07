@@ -20,9 +20,6 @@ Page({
   // 获取客户列表
   getCustomList() {
     var that = this;
-    wx.showLoading({
-      title: '玩命加载中',
-    })
     page = page + 1;
     var fromTime = '',
       toTime = '';
@@ -32,6 +29,9 @@ Page({
     if (this.data.toTime != '统计结束时间') {
       toTime = this.data.toTime;
     }
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/customers/view',
       method: 'post',
@@ -56,7 +56,10 @@ Page({
             customList: list.concat(res.data.rows)
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
         
         wx.hideLoading();
@@ -176,7 +179,8 @@ Page({
             success: function (res) {
               if (res.data.code == 200) {
                 wx.showToast({
-                  title:'删除成功'
+                  title: '删除成功',
+                  icon: 'none'
                 })
                 page=0;
                 that.setData({
@@ -184,7 +188,10 @@ Page({
                 })
                 that.getCustomList()
               } else {
-                console.log('')
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none'
+                })
               }
               wx.hideLoading();
             },

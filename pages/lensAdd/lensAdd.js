@@ -33,6 +33,9 @@ Page({
   // 获取商品类型
   getTypes() {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/dict/allDictByInfo1',
       method: 'post',
@@ -51,8 +54,12 @@ Page({
             typeList: data
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon:'noen'
+          })
         }
+        wx.hideLoading()
       },
       fail: function () {
         console.log('系统错误');
@@ -74,7 +81,7 @@ Page({
       jiangpian = this.data.jiangpian;
     }
     wx.showLoading({
-      title: '玩命加载中',
+      title: '加载中',
     })
     page = page + 1;
     wx.request({
@@ -98,7 +105,10 @@ Page({
             lensData: list.concat(res.data.rows)
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon:'none'
+          })
         }
         wx.hideLoading();
       },

@@ -20,6 +20,9 @@ Page({
   },
   getData() {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/users/getUser',
       method: 'post',
@@ -42,8 +45,12 @@ Page({
           })
          
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function () {
         console.log('系统错误');
@@ -52,6 +59,9 @@ Page({
   },
   formSubmit(e) {
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/users/changeInfo',
       method: 'post',
@@ -70,8 +80,12 @@ Page({
             wx.navigateBack({})
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function () {
         wx.showToast({

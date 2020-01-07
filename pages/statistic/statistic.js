@@ -123,6 +123,9 @@ Page({
     if (this.data.toTime != '统计结束时间') {
       toTime = this.data.toTime;
     }
+    wx.showLoading({
+      title: '加载中',
+    })
     wx.request({
       url: getApp().globalData.url + '/rest/sys/statistics/patDet1',
       method: 'post',
@@ -148,8 +151,12 @@ Page({
             countData: res.data.rows
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.data.msg,
+            icon: 'none'
+          })
         }
+        wx.hideLoading()
       },
       fail: function() {
         console.log('系统错误');

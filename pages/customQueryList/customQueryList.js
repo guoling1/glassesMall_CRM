@@ -60,7 +60,10 @@ Page({
             customList: list.concat(res.data.rows)
           })
         } else {
-          console.log('')
+          wx.showToast({
+            title: res.tata.msg,
+            icon: 'none'
+          })
         }
         wx.hideLoading();
       },

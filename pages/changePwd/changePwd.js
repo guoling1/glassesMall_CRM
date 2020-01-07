@@ -16,7 +16,6 @@ Page({
 
   },
   formSubmit(e) {
-    console.log(e.detail.value)
     if (e.detail.value.password != e.detail.value.confirmPassword){
       wx.showToast({
         title: '密码不一致',
@@ -26,6 +25,10 @@ Page({
     }
     var flag = true;
     if (flag) {
+      wx.showLoading({
+        title: '加载中',
+        icon: 'none'
+      })
       wx.request({
         url: app.globalData.url + '/rest/sys/users/changePassword',
         method: 'post',
@@ -48,6 +51,7 @@ Page({
               icon: 'none'
             })
           }
+          wx.hideLoading()
         },
         fail: function () {
           console.log('系统错误');

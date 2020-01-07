@@ -42,7 +42,6 @@ Page({
               'signType': 'MD5',
               'paySign': data.paySign,
               'success': function (res) {
-
                 wx.hideLoading()
                 that.getData()
                },
@@ -50,8 +49,6 @@ Page({
               'complete': function (res) { }
             })
         } else {
-          console.log('')
-
           wx.hideLoading()
         }
         wx.hideLoading();

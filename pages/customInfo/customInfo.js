@@ -53,7 +53,8 @@ Page({
             success: function (res) {
               if (res.data.code == 200) {
                 wx.showToast({
-                  title: '删除成功'
+                  title: '删除成功',
+                  icon:none
                 })
                 page = 0;
                 that.setData({
@@ -61,7 +62,10 @@ Page({
                 })
                 that.getCustom()
               } else {
-                console.log('')
+                wx.showToast({
+                  title: res.data.msg,
+                  icon: 'none'
+                })
               }
               wx.hideLoading();
             },
@@ -94,7 +98,7 @@ Page({
   getCustom() {
     var that = this;
     wx.showLoading({
-      title: '玩命加载中',
+      title: '加载中',
     })
     page=page+1;
     wx.request({

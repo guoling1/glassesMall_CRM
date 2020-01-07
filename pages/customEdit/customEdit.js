@@ -29,6 +29,10 @@ Page({
   // 获取客户信息
   getCustom(){
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+      icon: 'none'
+    })
     wx.request({
       url: app.globalData.url + '/rest/sys/customers/get',
       method: 'post',
@@ -59,6 +63,7 @@ Page({
             icon: 'none'
           })
         }
+        wx.hideLoading()
       },
       fail: function () {
         console.log('系统错误');
@@ -76,6 +81,10 @@ Page({
     }
     if (flag) {
       data.id = this.data.id
+      wx.showLoading({
+        title: '加载中',
+        icon: 'none'
+      })
       wx.request({
         url: app.globalData.url + '/rest/sys/customers1',
         method: 'post',
@@ -99,6 +108,7 @@ Page({
               icon: 'none'
             })
           }
+          wx.hideLoading()
         },
         fail: function () {
           console.log('系统错误');

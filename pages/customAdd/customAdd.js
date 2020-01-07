@@ -21,10 +21,8 @@ Page({
     })
   },
   formSubmit(e) {
-    console.log(JSON.stringify(e.detail.value))
     var data = e.detail.value;
     data.peijingdate = this.data.peijingdate;
-    console.log(data)
     var flag = true;
     for (var i in data) {
       if (data[i] === '' || data[i] =='请选择创建时间') {
@@ -33,6 +31,10 @@ Page({
     }
     if (flag) {
       data.id=''
+      wx.showLoading({
+        title: '加载中',
+        icon: 'none'
+      })
       wx.request({
         url: app.globalData.url + '/rest/sys/customers1',
         method: 'post',
@@ -56,6 +58,7 @@ Page({
               icon: 'none'
             })
           }
+          wx.hideLoading()
         },
         fail: function () {
           console.log('系统错误');

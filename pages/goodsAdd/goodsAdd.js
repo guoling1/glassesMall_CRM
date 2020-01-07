@@ -23,7 +23,6 @@ Page({
   },
   formSubmit(e) {
     var data = e.detail.value;
-    console.log(data)
     data.dictInfo = this.data.dictInfo;
     var flag = true;
     for (var i in data) {
@@ -40,6 +39,9 @@ Page({
           peripheryName: e.detail.value.dictName
         }
       }
+      wx.showLoading({
+        title: '加载中',
+      })
       wx.request({
         url: app.globalData.url + this.data.url,
         method: 'post',
@@ -63,6 +65,7 @@ Page({
               icon: 'none'
             })
           }
+          wx.hideLoading()
         },
         fail: function () {
           console.log('系统错误');
