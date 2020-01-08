@@ -41,8 +41,7 @@ Page({
           if (res.data.code == 200) {
             wx.showToast({
               title: res.data.msg,
-              icon: 'none',
-              duration: 500
+              icon: 'none'
             })
             wx.navigateBack({})
           } else {

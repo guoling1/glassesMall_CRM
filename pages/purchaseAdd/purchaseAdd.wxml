@@ -131,7 +131,7 @@
     <text class="name">消费金额：</text>
     <input class="inp" value="{{saleMoney}}" name="saleMoney"></input>
   </view>
-  <view class="item">
+  <view class="item" style="padding-bottom:90rpx;">
     <text class="name">配镜日期：</text>
     <!-- <input class="inp" value="createDate" name="createDate"></input> -->
     <picker class="inp" value="{{createTime}}" name="createTime" mode="date" bindchange="bindTime">

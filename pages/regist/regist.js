@@ -90,7 +90,8 @@ Page({
           } else {
             wx.showToast({
               title: res.data.content,
-              icon: 'none'
+              icon: 'none',
+              duration:2000
             })
           }
           wx.hideLoading()
@@ -103,7 +104,8 @@ Page({
       console.log(data)
       wx.showToast({
         title: '请填写完整信息',
-        icon: 'none'
+        icon: 'none',
+        duration: 2000
       })
     }
   },
