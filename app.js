@@ -11,7 +11,7 @@ App({
   globalData: {
     userInfo: null,
     token:'',
-    url: 'http://uue4xf.natappfree.cc'
+    url: 'http://vpbrd2.natappfree.cc'
   },
   // 获取登录信息
   getUser() {
@@ -42,6 +42,8 @@ App({
                     that.globalData.token = data.token;
                   } else { //未注册过，跳转注册页面
                     console.log('2解密失败')
+                    that.globalData.openid = res.data.openid;
+                    that.globalData.avatarUrl = res.data.avatarUrl;
                     wx.reLaunch({
                       url: '/pages/regist/regist?openid=' + res.data.openid + '&avatarUrl=' + res.data.avatarUrl,
                     })

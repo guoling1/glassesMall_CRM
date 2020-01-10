@@ -6,7 +6,7 @@
   </view>
   <view class="section">
     <view class="title">性别</view>
-    <picker name="sex" class="right" bindchange="bindSexChange" value="{{index}}" range="{{sexList}}">
+    <picker name="sex" class="right" bindchange="bindSexChange" value="1" range="{{sexList}}">
       <view class="picker">
         {{sex}}
       </view>

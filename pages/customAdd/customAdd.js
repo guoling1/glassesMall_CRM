@@ -6,13 +6,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    sex: '请选择',
+    sex: '男',
     sexList: ['女','男'],
     peijingdate:'请选择创建时间'
   },
   bindSexChange(e){
     this.setData({
-      sex:this.data.sexList[e.detail.value]
+      sex: this.data.sexList[e.detail.value]
     })
   },
   bindTime(e) {
@@ -20,14 +20,25 @@ Page({
       peijingdate: e.detail.value
     })
   },
+  getDate() {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth() + 1 > 9 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1);
+    let date = new Date().getDate() > 9 ? new Date().getDate() : '0' + new Date().getDate();
+    this.setData({
+      peijingdate: year + '-' + month + '-' + date
+    })
+  },
   formSubmit(e) {
     var data = e.detail.value;
     data.peijingdate = this.data.peijingdate;
     var flag = true;
     for (var i in data) {
-      if (data[i] === '' || data[i] =='请选择创建时间') {
-        flag = false;
+      if(i!='address'){
+        if (data[i] === '' || data[i] == '请选择创建时间') {
+          flag = false;
+        }
       }
+      
     }
     if (flag) {
       data.id=''
@@ -77,7 +88,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getDate()
   },
 
   /**
