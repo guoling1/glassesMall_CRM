@@ -18,8 +18,8 @@
   </view>
   <button class="submit" bindtap="search">搜索</button>
 </view>
-
-<view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{goodsList}}" wx:key="peripherySaleId">
+<view style="padding-botttom:90rpx;">
+  <view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" wx:for="{{goodsList}}" wx:key="peripherySaleId">
 
   <view class='content1' data-id="{{item.peripherySaleId}}">
     <view class="item">
@@ -29,12 +29,16 @@
       </view>
       <view class="date">{{item.createTime}}</view>
     </view>
+    <view class="btn-group">
+        <text class="edit" catchtap="edit" data-id="{{item.peripherySaleId}}">编辑</text>
+        <text class="del" catchtap="del" data-id="{{item.peripherySaleId}}">删除</text>
+      </view>
   </view>
 
   <view class="del1" catchtap="edit" data-id="{{item.peripherySaleId}}">编辑</view>
   <view class="del1 del2" catchtap="del" data-id="{{item.peripherySaleId}}">删除</view>
 </view>
+</view>
 
-<navigator class="fix" url="/pages/purchaseAdd/purchaseAdd">
-  <image src="../../images/add.png"></image>
-</navigator>
+
+<navigator class="fix" url="/pages/purchaseAdd/purchaseAdd">添加记录</navigator>

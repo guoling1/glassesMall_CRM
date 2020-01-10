@@ -22,29 +22,48 @@
     </view>
   </view>
 </view>
-
-<view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{lensList}}" wx:key="id">
-  <view class='content1' bindtap='showDetail' data-index="{{index}}">
-    <image class="new" src="../../images/new.png"></image>
-    <view class="item">{{(index>9?'':'0')+(index+1)}}.</view>
-    <view class="item">配镜时间：{{item.createDate}}</view>
-    <view class="item">用途：
-      <text>{{item.yongtu||''}}</text>
+<view style="padding-bottom:90rpx;">
+  <view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" wx:for="{{lensList}}" wx:key="id">
+    <view class='content1' bindtap='showDetail' data-index="{{index}}">
+      <!-- <image class="new" src="../../images/new.png"></image> -->
+      <view class="item">{{(index>9?'':'0')+(index+1)}}.</view>
+      <view class="item">配镜时间：
+        <text>{{item.createDate}}</text>
+      </view>
+      <view class="item">消费金额：
+        <text>￥{{item.price}}</text>
+      </view>
+      <view class="row">
+        <text class="name">右眼</text>
+        <text class="detail">裸眼视力:{{item.rLuoyanshili}}</text>
+        <text class="detail">球镜:{{item.rQiujing}}</text>
+        <text class="detail">柱镜:{{item.rZhujing}}</text>
+        <text class="detail">轴向:{{item.rZhouxiang}}</text>
+      </view>
+      <view class="row">
+        <text class="name">左眼</text>
+        <text class="detail">裸眼视力:{{item.lLuoyanshili}}</text>
+        <text class="detail">球镜:{{item.lQiujing}}</text>
+        <text class="detail">柱镜:{{item.lZhujing}}</text>
+        <text class="detail">轴向:{{item.lZhouxiang}}</text>
+      </view>
+      <view class="item">远用瞳距：
+        <text>{{item.yuanyongtongju||''}}</text>
+      </view>
+      <view class="item">镜框：
+        <text>{{item.jiangkuang||''}}</text>
+      </view>
+      <view class="item">镜片：
+        <text>{{item.jiangpian||''}}</text>
+      </view>
+      <view class="btn-group">
+        <text class="edit" catchtap="edit" data-cid="{{item.cId}}" data-pid="{{pid}}">编辑</text>
+        <text class="del" catchtap="del" data-cid="{{item.cId}}">删除</text>
+      </view>
     </view>
-    <view class="item">镜框：
-      <text>{{item.jiangkuang||''}}</text>
-    </view>
-    <view class="item">镜片：
-      <text>{{item.jiangpian||''}}</text>
-    </view>
-    <view class="item">消费金额：
-      <text>￥{{item.price}}</text>
-    </view>
-    <view class="item">备注：
-      <text>{{item.desc||'无'}}</text>
-    </view>
+    <view class="del1" catchtap="edit" data-cid="{{item.cId}}" data-pid="{{pid}}">编辑</view>
+    <view class="del1 del2" catchtap="del" data-cid="{{item.cId}}">删除</view>
   </view>
-  <view class="del1" catchtap="edit" data-cid="{{item.cId}}" data-pid="{{pid}}">编辑</view>
-  <view class="del1 del2" catchtap="del" data-cid="{{item.cId}}">删除</view>
 </view>
-<navigator url="/pages/customInfoAdd/customInfoAdd?pid={{pid}}" class="add">添加</navigator>
+
+<navigator url="/pages/customInfoAdd/customInfoAdd?pid={{pid}}" class="add">添加配镜</navigator>

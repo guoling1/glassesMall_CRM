@@ -7,7 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    description: ''
+    description: '',
+    videoUrl:''
   },
   getData(type) {
     var that = this;
@@ -31,7 +32,12 @@ Page({
           that.setData({
             description: data.description
           })
-          WxParse.wxParse('description', 'html', data.description, that, 15);
+          if (data.videoUrl){
+            that.setData({
+              videoUrl: app.globalData.url + data.videoUrl
+            })
+          }
+          WxParse.wxParse('description', 'html', data.sysHelpFrom.description, that, 15);
         } else {
           console.log('')
         }

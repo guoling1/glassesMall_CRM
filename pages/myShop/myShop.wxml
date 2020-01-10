@@ -1,3 +1,6 @@
 <!--pages/myShop/myShop.wxml-->
+<view class="section tc" wx:if="videoUrl" style="margin:0 auto;text-align: center;">
+<video id="myVideo" src="{{videoUrl}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+</view>
 <import src="../../wxParse/wxParse.wxml"/> 
   <template is="wxParse" data="{{wxParseData:description.nodes}}" />

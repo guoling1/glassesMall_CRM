@@ -86,7 +86,7 @@ Page({
   onLoad: function (options) {
     if (options.title) {
       wx.setNavigationBarTitle({
-        title: options.title,
+        title: '周边产品记录',
       })
       this.setData({
         title: options.title,

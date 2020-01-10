@@ -10,7 +10,7 @@ Page({
     purchaseName:'',
     saleMoney: '',
     createTime: '请选择配镜日期',
-    nameList:['lhj','tyj','jk','jp','flg','flz','ypl','hly','yjh','amy','rs','jz','qt'],
+    nameList:['lhj','tyj','jk','jp','flg','flz','ypl','hly','yjh','amy','rs','jz','qt','yy'],
     indexlhj:0,
     indextyj: 0,
     indexjk: 0,
@@ -24,6 +24,7 @@ Page({
     indexrs: 0,
     indexjz: 0,
     indexqt: 0,
+    indexyy: 0,
     type1: '',
     type2: '',
     type3: '',
@@ -37,7 +38,8 @@ Page({
     type11: '',
     type12: '',
     type13: '',
-    typeList: ['老花镜', '太阳镜', '镜框类型', '镜片类型', '防蓝光成品镜', '负离子镜', '眼疲劳用品', '护理液', '眼镜盒布', '按摩仪', '弱视用品', '矫正姿势类', '其他'],
+    type14: '',
+    typeList: ['老花镜', '太阳镜', '镜框类型', '镜片类型', '防蓝光成品镜', '负离子镜', '眼疲劳用品', '护理液', '眼镜盒布', '按摩仪', '弱视用品', '矫正姿势类', '其他','眼药'],
     lensData: {}
   },
 
@@ -52,11 +54,20 @@ Page({
     if (options.peripherySaleId) {
       this.getLensData(options.peripherySaleId)
     }
+    this.getDate()
     var that = this
     for(var i=0;i<this.data.typeList.length;i++){
       (function (num) { that.getSelectList(that.data.typeList[num], 'list' + that.data.nameList[num], that.data.nameList[num],num+1)})(i)
     }
     
+  },
+  getDate() {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth() + 1 > 9 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1);
+    let date = new Date().getDate() > 9 ? new Date().getDate() : '0' + new Date().getDate();
+    this.setData({
+      createTime: year + '-' + month + '-' + date
+    })
   },
   bindData(e){
     var obj = {}
@@ -83,7 +94,8 @@ Page({
       type10: data.type10,
       type11: data.type11,
       type12: data.type12,
-      type13: data.type13
+      type13: data.type13,
+      type14: data.type14
     }
     if (obj.purchaseName == '') {
       wx.showToast({
@@ -183,6 +195,7 @@ Page({
             type11: data.type11,
             type12: data.type12,
             type13: data.type13,
+            type14: data.type14
           })
         } else {
           wx.showToast({

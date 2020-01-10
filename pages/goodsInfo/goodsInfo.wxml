@@ -10,24 +10,31 @@
     </picker>
   </view>
 </view>
-
-<view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{goodsList}}" wx:key="id">
-
-  <view class='content1' data-id="{{item.id}}">
-    <view class="item">
-      <view class="top">
-        <text class="name">{{item.dictName}}</text>
-        <text class="type">{{item.dictInfo}}</text>
+<view style="padding-bottom:90rpx;">
+  <!-- <view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" bindtouchstart="touchstart" bindtouchmove="touchmove" wx:for="{{goodsList}}" wx:key="id"> -->
+<view class="touch-item1 " data-index="{{index}}" wx:for="{{goodsList}}" wx:key="id">
+    <view class='content1' data-id="{{item.id}}">
+      <view class="item">
+        <view class="top">
+          <text class="name">{{item.dictName}}</text>
+          <text class="type">{{item.dictInfo}}</text>
+        </view>
+        <view class="date">创建时间：{{item.createTime}}</view>
       </view>
-      <view class="date">创建时间：{{item.createTime}}</view>
+      <view class="btn-group">
+        <text class="edit" catchtap="edit" data-id="{{item.id}}" data-dictName="{{item.dictName}}" data-dictInfo="{{item.dictInfo}}">编辑</text>
+        <text class="del" catchtap="del" data-id="{{item.id}}">删除</text>
+      </view>
     </view>
+
+    <view class="del1" catchtap="edit" data-id="{{item.id}}" data-dictName="{{item.dictName}}" data-dictInfo="{{item.dictInfo}}">编辑</view>
+    <view class="del1 del2" catchtap="del" data-id="{{item.id}}">删除</view>
+
   </view>
-
-  <view class="del1" catchtap="edit" data-id="{{item.id}}" data-dictName="{{item.dictName}}" data-dictInfo="{{item.dictInfo}}">编辑</view>
-  <view class="del1 del2" catchtap="del" data-id="{{item.id}}">删除</view>
-
 </view>
 
+
+
 <navigator class="fix" url="/pages/goodsAdd/goodsAdd">
-  <image src="../../images/add.png"></image>
+  添加商品
 </navigator>

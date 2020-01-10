@@ -48,10 +48,19 @@ Page({
     if (options.cid) {
       this.getLensData(options.cid)
     }
+    this.getDate()
     this.getJKTypes()
     this.getJPTypes()
     this.getYXTypes()
 
+  },
+  getDate() {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth() + 1 > 9 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1);
+    let date = new Date().getDate() > 9 ? new Date().getDate() : '0' + new Date().getDate();
+    this.setData({
+      createDate: year + '-' + month + '-' + date
+    })
   },
   formSubmit(e) {
     var data = e.detail.value,

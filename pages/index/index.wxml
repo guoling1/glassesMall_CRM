@@ -20,14 +20,14 @@
     <image src="../../images/nav1.png"></image>
     <view>商品信息</view>
   </navigator>
-  <navigator class="item" url="/pages/customAdd/customAdd">
+  <!-- <navigator class="item" url="/pages/customAdd/customAdd">
     <image src="../../images/nav2.png"></image>
     <view>增加客户</view>
-  </navigator>
-  <navigator class="item" url="/pages/customQuery/customQuery">
+  </navigator> -->
+  <!-- <navigator class="item" url="/pages/customQuery/customQuery">
     <image src="../../images/nav3.png"></image>
     <view>查询客户</view>
-  </navigator>
+  </navigator> -->
   <navigator class="item" url="/pages/lensAdd/lensAdd">
     <image src="../../images/nav4.png"></image>
     <view>镜片补货</view>
