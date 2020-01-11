@@ -30,6 +30,7 @@
       <view class="date">{{item.createTime}}</view>
     </view>
     <view class="btn-group">
+        <text class="edit" style="background:green" catchtap="detail" data-id="{{item.peripherySaleId}}">查看</text>
         <text class="edit" catchtap="edit" data-id="{{item.peripherySaleId}}">编辑</text>
         <text class="del" catchtap="del" data-id="{{item.peripherySaleId}}">删除</text>
       </view>

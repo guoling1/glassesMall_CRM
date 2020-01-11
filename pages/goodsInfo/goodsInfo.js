@@ -139,6 +139,12 @@ Page({
       url: '/pages/goodsAdd/goodsAdd?id=' + e.currentTarget.dataset.id + '&dictName=' + e.currentTarget.dataset.dictname + '&dictInfo=' + e.currentTarget.dataset.dictinfo
     })
   },
+  detail: function (e) {
+    console.log(JSON.stringify(e.currentTarget.dataset))
+    wx.navigateTo({
+      url: '/pages/goodsDet/goodsDet?id=' + e.currentTarget.dataset.id + '&dictName=' + e.currentTarget.dataset.dictname + '&dictInfo=' + e.currentTarget.dataset.dictinfo
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

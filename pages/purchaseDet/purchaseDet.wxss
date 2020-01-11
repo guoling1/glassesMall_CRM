@@ -1,0 +1,71 @@
+/* pages/purchaseAdd/purchaseAdd.wxss */
+.line{
+  height: 20rpx;
+  background: #f2f2f3;
+}
+.title{
+  padding: 0 30rpx 25rpx;
+  line-height: 84rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.item{
+  position: relative;
+  margin-bottom: 26rpx;
+  padding: 0 30rpx;
+  line-height: 68rpx;
+  font-size: 28rpx;
+}
+.item text{
+  display: inline-block;
+  width: 141rpx;
+  text-align: right;
+}
+.item .inp{
+  display: inline-block;
+  padding: 0 20rpx;
+  width: 500rpx;
+  height: 66rpx;
+  line-height: 66rpx;
+  border: 1rpx solid #e9eaec;
+  border-radius: 8rpx;
+  vertical-align: middle;
+}
+.item image{
+  position: absolute;
+  right: 50rpx;
+  top: 22rpx;
+  width: 32rpx;
+  height: 26rpx;
+}
+.dasded{
+  margin: 0 auto 30rpx;
+  width: 690rpx;
+  border-bottom: 1rpx dashed #dadada;
+}
+.remark{
+  margin: 30rpx auto 110rpx;
+  padding: 20rpx 26rpx;
+  border: 1rpx solid #e9eaec;
+  border-radius: 8rpx;
+  height: 190rpx;
+  width: 638rpx;
+  font-size: 28rpx;
+}
+.remark textarea{
+  width: 100%;
+  height: 160rpx;
+}
+.submit{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+  background: #4944fe;
+  border-radius: 0;
+}

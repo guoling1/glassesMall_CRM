@@ -28,7 +28,12 @@ Page({
       lensList: data
     })
   },
-
+  //详情
+  detail: function (e) {
+    wx.navigateTo({
+      url: '/pages/customInfoDet/customInfoDet?cid=' + e.currentTarget.dataset.cid + "&pid=" + e.currentTarget.dataset.pid
+    })
+  },
   //删除事件
   del: function(e) {
     let that = this;

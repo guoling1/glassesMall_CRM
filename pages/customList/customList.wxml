@@ -3,13 +3,13 @@
   <view class="search">
     <image src="../../images/search.png"></image>
     <input placeholder="请输入相关关键字" value="{{search}}" bindinput="searchEdit" bindconfirm="searchConfirm"></input>
-    <button bindtap="toHighSearch">高级搜索</button>
+    <button bindtap="toHighSearch">客户查询</button>
   </view>
 </view>
 <view style="padding-bottom: 90rpx;">
   <view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" wx:for="{{customList}}" wx:key="id">
 
-    <view class='content1' bindtap='showDetail' data-id="{{item.id}}">
+    <view class='content1'>
       <view class="item">
         <view class="top">
           <text class="name">{{item.fullname}}</text>
@@ -22,6 +22,7 @@
         <view class="detail">属地：{{item.address}}</view>
       </view>
       <view class="btn-group">
+        <text class="edit" style="background:green" bindtap='showDetail' data-id="{{item.id}}">查看</text>
         <text class="edit" catchtap="edit" data-id="{{item.id}}">编辑</text>
         <text class="del" catchtap="del" data-id="{{item.id}}">删除</text>
       </view>

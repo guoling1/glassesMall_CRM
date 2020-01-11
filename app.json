@@ -10,6 +10,7 @@
     "pages/changePwd/changePwd",
     "pages/goodsInfo/goodsInfo",
     "pages/goodsAdd/goodsAdd",
+    "pages/goodsDet/goodsDet",
     "pages/customAdd/customAdd",
     "pages/customEdit/customEdit",
     "pages/customQuery/customQuery",
@@ -19,11 +20,13 @@
     "pages/statistic/statistic",
     "pages/customList/customList",
     "pages/customInfo/customInfo",
+    "pages/customInfoDet/customInfoDet",
     "pages/customInfoAdd/customInfoAdd",
     "pages/mask/mask",
     "pages/myShop/myShop",
     "pages/purchase/purchase",
-    "pages/purchaseAdd/purchaseAdd"
+    "pages/purchaseAdd/purchaseAdd",
+    "pages/purchaseDet/purchaseDet"
   ],
   "window": {
     "backgroundTextStyle": "dark",

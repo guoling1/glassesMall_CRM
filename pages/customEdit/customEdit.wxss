@@ -11,6 +11,7 @@
   display: inline-block;
 }
 .right{
+  padding-right: 30rpx;
   float: right;
   text-align: right;
 }

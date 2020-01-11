@@ -151,6 +151,11 @@ Page({
       url: '/pages/purchaseAdd/purchaseAdd?peripherySaleId=' + e.currentTarget.dataset.id
     })
   },
+  detail: function (e) {
+    wx.navigateTo({
+      url: '/pages/purchaseDet/purchaseDet?peripherySaleId=' + e.currentTarget.dataset.id
+    })
+  },
   bindFromTime(e) {
     this.setData({
       fromTime: e.detail.value

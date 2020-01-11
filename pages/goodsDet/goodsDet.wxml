@@ -1,0 +1,16 @@
+<!--pages/goodsAdd/goodsAdd.wxml-->
+<form bindsubmit="formSubmit">
+  <view class="item">
+    <text class="name">类 型：</text>
+    <!-- <input placeholder="请输入商品类型" class="inp"></input> -->
+    <picker class="inp" mode="selector" value="{{typeIndex}}" bindchange="bindType" range="{{typeList}}" disabled>
+      <view class="picker">
+        {{typeList[typeIndex]}}
+      </view>
+    </picker>
+  </view>
+  <view class="item">
+    <text class="name">名 称：</text>
+    <input name="dictName" value="{{dictName}}" placeholder="请输入商品名称" class="inp" disabled></input>
+  </view>
+</form>

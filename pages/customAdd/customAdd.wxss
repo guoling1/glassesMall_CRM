@@ -15,7 +15,7 @@
   text-align: right;
 }
 .right{
-  padding-right: 20rpx;
+  padding-right: 30rpx;
   height: 86rpx;
   line-height: 86rpx;
 }

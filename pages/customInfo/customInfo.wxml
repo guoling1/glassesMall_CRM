@@ -24,14 +24,14 @@
 </view>
 <view style="padding-bottom:90rpx;">
   <view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" wx:for="{{lensList}}" wx:key="id">
-    <view class='content1' bindtap='showDetail' data-index="{{index}}">
+    <view class='content1'>
       <!-- <image class="new" src="../../images/new.png"></image> -->
       <view class="item">{{(index>9?'':'0')+(index+1)}}.</view>
       <view class="item">配镜时间：
         <text>{{item.createDate}}</text>
       </view>
       <view class="item">消费金额：
-        <text>￥{{item.price}}</text>
+        <text>￥{{item.price||0}}</text>
       </view>
       <view class="row">
         <text class="name">右眼</text>
@@ -57,6 +57,7 @@
         <text>{{item.jiangpian||''}}</text>
       </view>
       <view class="btn-group">
+        <text class="edit" style="background:green" catchtap="detail" data-cid="{{item.cId}}" data-pid="{{pid}}">查看</text>
         <text class="edit" catchtap="edit" data-cid="{{item.cId}}" data-pid="{{pid}}">编辑</text>
         <text class="del" catchtap="del" data-cid="{{item.cId}}">删除</text>
       </view>

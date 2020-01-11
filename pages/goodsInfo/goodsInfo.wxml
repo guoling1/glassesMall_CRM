@@ -22,6 +22,7 @@
         <view class="date">创建时间：{{item.createTime}}</view>
       </view>
       <view class="btn-group">
+        <text class="edit" style="background:green" catchtap="detail" data-id="{{item.id}}" data-dictName="{{item.dictName}}" data-dictInfo="{{item.dictInfo}}">查看</text>
         <text class="edit" catchtap="edit" data-id="{{item.id}}" data-dictName="{{item.dictName}}" data-dictInfo="{{item.dictInfo}}">编辑</text>
         <text class="del" catchtap="del" data-id="{{item.id}}">删除</text>
       </view>
