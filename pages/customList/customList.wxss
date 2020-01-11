@@ -33,6 +33,7 @@ page{
   float: right;
   margin-right: 16rpx;
   margin-top: 10rpx;
+  padding: 0;
   width: 156rpx;
   height: 38rpx;
   line-height: 38rpx;
