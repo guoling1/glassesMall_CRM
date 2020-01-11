@@ -144,12 +144,16 @@ page{
   flex-direction: row;
 }
 .row .name{
+  display: inline-block;
   color: #000;
-  margin-right: 20rpx;
+  width: 80rpx;
 }
 .row .detail{
-  width: 157rpx;
+  width: 300rpx;
   display: inline-block;
+}
+.row .detail:nth-child(4){
+  margin-left: 80rpx;
 }
  
 .column1 {

@@ -1,6 +1,6 @@
 <!--pages/customInfo/customInfo.wxml-->
 <view class="info">
-  <image src="../../images/avatar-no.png" class="avatar"></image>
+  <!-- <image src="../../images/avatar-no.png" class="avatar"></image> -->
   <view class="name">{{customData.fullname}}</view>
   <view class="sex">（{{customData.sex==1?'男':'女'}}）</view>
   <view class="list">

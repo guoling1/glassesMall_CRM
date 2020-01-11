@@ -3,7 +3,7 @@
 <view>地址：邯郸市邯山区旺角广场B座</view>
 <view>电话：0310-5368952</view>
 <view>微信：13333103969</view> -->
-<view class="section tc" wx:if="videoUrl">
+<view class="section tc" wx:if="videoUrl" style="margin:0 auto;text-align: center;">
 <video id="myVideo" src="{{videoUrl}}" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
 </view>
 <import src="../../wxParse/wxParse.wxml"/> 
