@@ -20,10 +20,6 @@
     <image src="../../images/nav1.png"></image>
     <view>商品信息</view>
   </navigator>
-  <navigator class="item" url="/pages/customList/customList">
-    <image src="../../images/nav7.png"></image>
-    <view>客户列表</view>
-  </navigator>
   <!-- <navigator class="item" url="/pages/customAdd/customAdd">
     <image src="../../images/nav2.png"></image>
     <view>增加客户</view>
@@ -32,29 +28,32 @@
     <image src="../../images/nav3.png"></image>
     <view>查询客户</view>
   </navigator> -->
+    <navigator class="item" url="/pages/customList/customList">
+    <image src="../../images/nav7.png"></image>
+    <view>客户列表</view>
+  </navigator>
   <navigator class="item" url="/pages/lensAdd/lensAdd">
     <image src="../../images/nav4.png"></image>
     <view>镜片补货</view>
   </navigator>
-  <navigator class="item" url="/pages/statistic/statistic">
+    <navigator class="item" url="/pages/statistic/statistic">
     <image src="../../images/nav6.png"></image>
     <view>配镜统计</view>
   </navigator>
-  
-  <navigator class="item" url="/pages/myShop/myShop?title=我的商城">
+    <navigator class="item" url="/pages/myShop/myShop?title=我的商城">
     <image src="../../images/nav8.png"></image>
     <view>我的商城</view>
   </navigator>
-  <view class="item">
-  </view>
+<navigator class="item" url='/pages/myShop/myShop?title=帮助'>
+  <image src='../../images/nav9.png'></image>
+ <view>使用帮助</view>
+</navigator>
   <navigator class="item" url="/pages/nearGoods/nearGoods">
     <image src="../../images/nav5.png"></image>
-    <view>周边产品</view>
+    <view>添加周边类型</view>
   </navigator>
-  
   <navigator class="item" url="/pages/purchase/purchase">
     <image src="../../images/my2.png"></image>
     <view>卖出周边产品</view>
   </navigator>
-  <view class="item"></view>
 </view>

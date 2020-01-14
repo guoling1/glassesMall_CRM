@@ -3,7 +3,7 @@
   <view class="search">
     <image src="../../images/search.png"></image>
     <input placeholder="请输入相关关键字" value="{{search}}" bindinput="searchEdit" bindconfirm="searchConfirm"></input>
-    <button bindtap="toHighSearch">客户查询</button>
+    <button bindtap="toHighSearch">查询客户</button>
   </view>
 </view>
 <view style="padding-bottom: 90rpx;">

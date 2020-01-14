@@ -1,4 +1,5 @@
 // pages/mask/mask.js
+const app = getApp()
 Page({
 
   /**
@@ -43,26 +44,22 @@ Page({
                       },
                       success: function(res) {
                         wx.hideLoading()
-                        if (res.data.code == 200) {
-                          var data = res.data.data;
-                          getApp().globalData.userInfo = data.user;
-                          getApp().globalData.token = data.token;
-                          getApp().getData()
-                          if (data.user.status == 1) {
-                            wx.reLaunch({
-                              url: '/pages/auth/auth',
-                            })
-                          } else if (data.user.status == 2) {
-                            wx.reLaunch({
-                              url: '/pages/wait/wait',
-                            })
-                          } else {
-                            wx.reLaunch({
-                              url: '/pages/index/index',
-                            })
-                          }
-                        } else {
+                        if (res.data.success) { //注册过
+                          var data = res.data;
+                          that.globalData.userInfo = data.user;
+                          that.globalData.token = data.token;
+                        } else { //未注册过，跳转注册页面
                           console.log('2解密失败')
+                          app.globalData.openid = res.data.openid;
+                          app.globalData.avatarUrl = res.data.avatarUrl;
+                          wx.reLaunch({
+                            url: '/pages/regist/regist?openid=' + res.data.openid + '&avatarUrl=' + res.data.avatarUrl,
+                          })
+                        }
+                        // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                        // 所以此处加入 callback 以防止这种情况
+                        if (that.userInfoReadyCallback) {
+                          that.userInfoReadyCallback(res)
                         }
                       },
                       fail: function() {
