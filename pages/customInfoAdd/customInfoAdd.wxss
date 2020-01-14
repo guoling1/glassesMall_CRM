@@ -68,4 +68,5 @@
   color: #fff;
   background: #4944fe;
   border-radius: 0;
+  z-index: 11;
 }

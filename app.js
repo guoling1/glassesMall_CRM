@@ -12,6 +12,7 @@ App({
     userInfo: null,
     token:'',
     url: 'http://www.jingduoduoyanjing.com',
+    // url:'http://btkwmi.natappfree.cc',
     openid:''
   },
   // 获取登录信息
