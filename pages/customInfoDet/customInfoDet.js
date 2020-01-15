@@ -25,7 +25,7 @@ Page({
     yinxing: '',
     price: '',
     createDate: '请选择配镜日期',
-    typeListYT: ['请选择用途', '远视', '近视', '两用', '多用'],
+    typeListYT: ['请选择用途', '远视', '视近', '两用', '多用'],
     indexYT: 0,
     typeListJK: [],
     indexJK: 0,

@@ -1,5 +1,5 @@
 <!--pages/mask/mask.wxml-->
-<text>· 获取您的公开信息（昵称、头像等）</text>
+<text>· 获取您的公开信息（昵称、头像等）为了绑定用户和小程序的对应关系，以免每次都需要认证获取</text>
 <button open-type="getUserInfo" type='primary' size='' class='show-author' bindgetuserinfo="getUserInfo">
 <view class='get-userinfo'>确认登陆</view>
  </button>

@@ -25,7 +25,7 @@ Page({
     yinxing: '',
     price: '',
     createDate: '请选择配镜日期',
-    typeListYT: ['请选择用途', '远视', '近视', '两用', '多用'],
+    typeListYT: ['请选择用途', '远视', '视近', '两用', '多用'],
     indexYT: 0,
     typeListJK: [],
     indexJK: 0,
@@ -34,7 +34,9 @@ Page({
     typeListYX: [],
     indexYX: 0,
     desc: '',
-    lensData: {}
+    lensData: {},
+    showtextarea:false
+    
   },
 
   /**
@@ -53,6 +55,33 @@ Page({
     this.getJPTypes()
     this.getYXTypes()
 
+  },
+  conversation: function (e) {
+    var speak = e.detail.value;
+    this.setData({
+      desc: speak
+    })
+
+  },
+  conversation1: function () {
+    this.setData({
+      showtextarea: true
+    })
+    if (this.data.desc == "") {
+      this.setData({ desc: '' })
+    }
+  },
+  ifshowArea(e) {
+    var show = e.currentTarget.dataset.show == "yes" ? true : false;
+    if (show) {
+      this.setData({ showtextarea: false })
+    } else { this.setData({ showtextarea: true }) }
+    if (this.data.desc == '') {
+      this.setData({ desc: '' })
+    }else{
+      console.log(e.detail.value)
+      this.setData({ desc: e.detail.value })
+    }
   },
   getDate() {
     let year = new Date().getFullYear();
@@ -77,6 +106,10 @@ Page({
     if (data.createDate == '请选择配镜日期') {
       data.createDate = ''
     }
+    console.log(data.desc)
+    console.log(this.data.desc)
+    
+      data.desc = this.data.desc
     var flag = true;
     if (flag) {
       data.pId = that.data.pid;
@@ -156,7 +189,7 @@ Page({
             yinxing: data.yinxing,
             price: data.price,
             createDate: new Date(data.createDate).toJSON().split('T')[0],
-            indexYT: data.yongtu,
+            indexYT: data.yongtu||0,
             desc: data.desc
           })
         } else {

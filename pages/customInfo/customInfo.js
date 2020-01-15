@@ -46,20 +46,20 @@ Page({
             title: '删除中',
           })
           wx.request({
-            url: getApp().globalData.url + '/rest/sys/customersDetail/delete1',
-            method: 'post',
+            url: getApp().globalData.url + '/rest/sys/customersDetail/delete1?ids=' + e.currentTarget.dataset.cid,
+            method: 'DELETE',
             header: {
-              "Content-Type": "application/x-www-form-urlencoded",
+              // "Content-Type": "application/x-www-form-urlencoded",
               'X-AUTH-TOKEN': app.globalData.token
             },
-            data: {
-              ids: e.currentTarget.dataset.cid
-            },
+            // data: {
+            //   ids: e.currentTarget.dataset.cid
+            // },
             success: function (res) {
               if (res.data.code == 200) {
                 wx.showToast({
                   title: '删除成功',
-                  icon:none
+                  icon:'none'
                 })
                 page = 0;
                 that.setData({

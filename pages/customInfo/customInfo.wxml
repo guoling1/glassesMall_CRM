@@ -56,6 +56,9 @@
       <view class="item">镜片：
         <text>{{item.jiangpian||''}}</text>
       </view>
+      <view class="item">隐形：
+        <text>{{item.yinxing||''}}</text>
+      </view>
       <view class="btn-group">
         <text class="edit" style="background:green" catchtap="detail" data-cid="{{item.cId}}" data-pid="{{pid}}">查看</text>
         <text class="edit" catchtap="edit" data-cid="{{item.cId}}" data-pid="{{pid}}">编辑</text>

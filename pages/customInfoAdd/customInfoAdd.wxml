@@ -78,7 +78,7 @@
   <view class="item">
     <text class="name">隐形：</text>
     <!-- <input class="inp" value="{{yinxing}}" name="yinxing" placeholder="请选择隐形"></input> -->
-    <picker class="inp" name="yinxing" mode="selector" value="{{indexYX}}" bindchange="bindXY" range="{{typeListYX}}" range-key="dictName">
+    <picker class="inp" name="yinxing" mode="selector" value="{{indexYX}}" bindchange="bindYX" range="{{typeListYX}}" range-key="dictName">
       <view class="picker">
         {{typeListYX[indexYX].dictName}}
       </view>
@@ -100,9 +100,12 @@
     <image src="../../images/calendar.png"></image>
   </view>
   <view class="line"></view>
-  <view class="remark">
+  <view class="remark" style="padding-bottom:90rpx;">
     <view class="name">备注</view>
-    <textarea value="{{desc}}" name="desc"></textarea>
+    <!-- <textarea value="{{desc}}" name="desc"></textarea> -->
+    <textarea  wx:if='{{showtextarea}}' name="desc" value='{{desc}}' data-show='yes' focus="1" bindblur='ifshowArea'
+     bindinput='conversation' class='travel_textarea'></textarea>
+    <view wx:if='{{!showtextarea}}' class='travel_textarea' bindtap='conversation1'>{{desc}}</view>
   </view>
   <button formType="submit" class="submit">保存</button>
 </form>

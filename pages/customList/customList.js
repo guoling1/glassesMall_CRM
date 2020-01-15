@@ -167,15 +167,15 @@ Page({
             title: '删除中',
           })
           wx.request({
-            url: getApp().globalData.url + '/rest/sys/customers/delete',
-            method: 'post',
+            url: getApp().globalData.url + '/rest/sys/customers/delete?ids=' + e.currentTarget.dataset.id,
+            method: 'DELETE',
             header: {
-              "Content-Type": "application/x-www-form-urlencoded",
+              // "Content-Type": "application/x-www-form-urlencoded",
               'X-AUTH-TOKEN': app.globalData.token
             },
-            data: {
-              ids: e.currentTarget.dataset.id
-            },
+            // data: {
+            //   ids: e.currentTarget.dataset.id
+            // },
             success: function (res) {
               if (res.data.code == 200) {
                 wx.showToast({
