@@ -6,11 +6,11 @@
     <view class="name">总收入 (元)</view>
     <view class="price">{{(income1||0)+(income2||0)}}</view>
   </view>
-  <navigator class="item" url="/pages/customList/customList">
+  <navigator class="item" url="/pages/customList/customList?type=1">
     <view class="name">配镜收入 (元)</view>
     <view class="price">{{income1||0}}</view>
   </navigator>
-  <navigator class="item" url="/pages/purchase/purchase">
+  <navigator class="item" url="/pages/purchase/purchase?type=1">
     <view class="name">周边收入 (元)</view>
     <view class="price">{{income2||0}}</view>
   </navigator>

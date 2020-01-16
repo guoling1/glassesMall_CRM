@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    type: 0, //type为1默认查询当天
     fromTime: '统计开始时间',
     toTime: '统计结束时间',
     purchaseName:'',
@@ -18,7 +19,18 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      type: options.type
+    })
+  },
+  getDate() {
+    let year = new Date().getFullYear();
+    let month = new Date().getMonth() + 1 > 9 ? new Date().getMonth() + 1 : '0' + (new Date().getMonth() + 1);
+    let date = new Date().getDate() > 9 ? new Date().getDate() : '0' + new Date().getDate();
+    this.setData({
+      fromTime: year + '-' + month + '-' + date,
+      toTime: year + '-' + month + '-' + date
+    })
   },
   nameedit(e) {
     this.setData({
@@ -178,6 +190,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    if (this.data.type == 1) {
+      this.getDate()
+    }
     page = 0;
     this.setData({
       goodsList: []

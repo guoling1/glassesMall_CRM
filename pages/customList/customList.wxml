@@ -34,7 +34,7 @@
   </view>
 </view>
 
-<navigator url="/pages/customAdd/customAdd" class="add">添加客户</navigator>
+<navigator url="/pages/customAdd/customAdd" class="add">增加客户</navigator>
 
 <view class="search-mask" wx:if="{{isSearch}}" bindtap="closeMask">
   <view class="content" catchtap='(function(){})()'>
