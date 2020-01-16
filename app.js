@@ -11,8 +11,8 @@ App({
   globalData: {
     userInfo: null,
     token:'',
-    url: 'http://www.jingduoduoyanjing.com',
-    // url:'http://btkwmi.natappfree.cc',
+    // url: 'http://www.jingduoduoyanjing.com',
+    url:'http://wczh7f.natappfree.cc',
     openid:''
   },
   // 获取登录信息

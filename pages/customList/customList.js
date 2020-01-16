@@ -16,7 +16,8 @@ Page({
     fullname: '',
     phone: '',
     fromTime: '统计开始时间',
-    toTime: '统计结束时间'
+    toTime: '统计结束时间',
+    total:0
   },
   getDate() {
     let year = new Date().getFullYear();
@@ -63,7 +64,8 @@ Page({
         var list = that.data.customList
         if (res.data.code == 0) {
           that.setData({
-            customList: list.concat(res.data.rows)
+            customList: list.concat(res.data.rows),
+            total: res.data.total
           })
         } else {
           wx.showToast({

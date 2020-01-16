@@ -47,6 +47,10 @@ page{
   border: none;
   border-radius: 0;
 }
+.search-box .num{
+  font-size: 24rpx;
+  margin-top: 10rpx;
+}
 
 .search-mask{
   z-index: 111;

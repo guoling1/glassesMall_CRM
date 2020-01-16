@@ -5,6 +5,7 @@
     <input placeholder="请输入相关关键字" value="{{search}}" bindinput="searchEdit" bindconfirm="searchConfirm"></input>
     <button bindtap="toHighSearch">查询客户</button>
   </view>
+  <view class="num">共{{total}}条客户记录</view>
 </view>
 <view style="padding-bottom: 90rpx;">
   <view class="touch-item1 {{item.isTouchMove ? 'touch-move-active1' : ''}}" data-index="{{index}}" wx:for="{{customList}}" wx:key="id">
@@ -20,6 +21,7 @@
         </view>
         <view class="detail">联系电话：{{item.phone}}</view>
         <view class="detail">属地：{{item.address}}</view>
+        <view class="detail">金额：￥{{item.price||0}}</view>
       </view>
       <view class="btn-group">
         <text class="edit" style="background:green" bindtap='showDetail' data-id="{{item.id}}">查看</text>
